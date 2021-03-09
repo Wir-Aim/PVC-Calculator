@@ -6,14 +6,11 @@ import { useState } from "react";
 
 const overlapOptions = [{ value: "50", label: "50 mm" }, { value: "95", label: "95 mm" }, { value: "135", label: "135 mm" }];
 const stripOptions = [{ value: "200", label: "200 mm" }, { value: "300", label: "300 mm" }, { value: "400", label: "400 mm" }];
-// const stripOptions = ["200", "300", "400"];
-// const overlapOptions = ["50", "95", "135"];
-// const stripValueOptions = ["200", "300", "400"];
-// const overlapValueOptions = ["50", "95", "135"];
 const defaultOverlapOption = overlapOptions[0].value
 const defaultStripOption = stripOptions[0].value
 
 function Dashboard() {
+  const [isLoading, setLoading] = useState(true);
   const [WidthUpdate, setWidthUpdate] = useState([500]);
   const [HeightUpdate, setHeightUpdate] = useState([500]);
   const [WidthValues, setWidthValues] = useState([500]);
@@ -74,6 +71,7 @@ function Dashboard() {
       )
     );
   };
+
 
   return (
     <>
