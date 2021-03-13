@@ -1,0 +1,67 @@
+.maindiv {
+  flex: 1;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+.mainHeader {
+  /* flex: 1; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #025d5f;
+}
+
+.headerText {
+  font-size: 20px;
+  font-family: "Futura";
+  color: #3bb678;
+  letter-spacing: 2px;
+}
+
+.header2Text {
+  margin-right: 100px;
+  font-size: 20px;
+  font-family: "Futura";
+  color: #3bb678;
+  letter-spacing: 2px;
+}
+
+.main-head {
+  flex: 1;
+}
+
+.main-inner-head {
+  flex: 1;
+  height: 80px;
+  background-color: #3bb678;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+}
+
+.header {
+  /* flex: 1; */
+  width: 50%;
+  height: 80px;
+  background-color: #3bb678;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  text-decoration: none;
+  color: white;
+}
+
+.headerActive {
+  text-decoration: none;
+  border-bottom: 0px;
+  color: black;
+  background-color: #3bb67977;
+}
+
+.head {
+  text-align: center;
+}
