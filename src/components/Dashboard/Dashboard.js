@@ -2,6 +2,7 @@ import SliderComponent from "../Slider";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "./Dashboard.css";
+import PDF from "../PDF/PDF";
 import img1 from '../../images/Pvc-grades/pvc-anti-insect.jpg';
 import img2 from '../../images/Pvc-grades/pvc-anti-microbial-perforated.jpg';
 import img3 from '../../images/Pvc-grades/pvc-antimicrobial-standard.jpg';
@@ -145,8 +146,8 @@ function Dashboard() {
           </div>
           <div className='main-body'>
             <div className="main-head">
-                <NavLink exact activeClassName='headerActive' to='/' className="header">PVC Strip Curtain Calculator</NavLink>
-                <NavLink exact activeClassName='headerActive' to='/dockleveller' className="header">Dock Leveller</NavLink>
+              <NavLink exact activeClassName='headerActive' to='/' className="header">PVC Strip Curtain Calculator</NavLink>
+              <NavLink exact activeClassName='headerActive' to='/dockleveller' className="header">Dock Leveller</NavLink>
             </div>
             <div className="body-content">
               <div className="slider">
@@ -213,6 +214,7 @@ function Dashboard() {
                 <p className="label-text">{LabelValues} Strips Needed</p>
                 <p className="label-text">Total Length: {Label2Values}m</p>
               </div>
+              <PDF />
             </div>
           </div>
         </div>
