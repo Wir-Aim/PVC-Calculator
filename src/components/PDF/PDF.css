@@ -1,16 +1,26 @@
 .pdfMain {
-flex: 1;
+  flex: 1;
 }
 .pdfInner {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   flex-direction: column;
 }
+/* .refDiv {
+} */
 .banner {
-  width: 100%;
-  /* height: 75px; */
+  display: flex;
+  align-items: center;
+  flex-direction: row;
   border-bottom: 1px solid black;
+}
+
+.bannerText {
+  font-size: 20px;
+  font-family: "Futura";
+  color: #3bb678;
+  letter-spacing: 2px;
 }
 
 .tableData {
@@ -22,7 +32,7 @@ flex: 1;
 }
 
 #title {
-  text-align: center;
+  /* text-align: center; */
   font-family: arial, sans-serif;
 }
 

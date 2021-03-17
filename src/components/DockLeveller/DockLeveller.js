@@ -8,7 +8,7 @@ function DockLeveller() {
         <>
             <div className='maindiv' >
                 <div className='mainHeader' >
-                    <img src={headLogo} />
+                    <img src={headLogo} alt='dockHead' />
                     <div className='headerText'>
                         <p>Your partner in Intralogistics solutions</p>
                     </div>

@@ -128,11 +128,12 @@
 }
 
 .pvc-img {
-  width: 180px;
-  height: 180px;
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
 }
 .pvc-img-div {
-  margin-left: 10px;
+  margin-left: 40px;
 }
 
 .dropdown-inner {

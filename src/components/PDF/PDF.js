@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
-import Banner from '../../images/intactBanner.PNG'
+import Banner from '../../images/logo/SPIMA_trans.png'
 import Pdf from 'react-to-pdf'
 import "./PDF.css";
 
-const ref = React.createRef();
+const myRef = React.createRef();
+const myInput = React.createRef()
+
+
 const options = {
-    orientation: 'portrait',
+    orientation: 'l',
     unit: 'px',
-    format: [969, 1920]
+    // format: [576,252]
 };
 
 class PDF extends Component {
     constructor(props) {
         super(props) //since we are extending class Table so we have to use super in order to override Component class constructor
+        this.myInput = React.createRef()
         this.state = { //state is by default an object
             students: [
                 { productNumber: 'PVC', qty: 21, },
@@ -21,6 +25,10 @@ class PDF extends Component {
                 { productNumber: 'PVC', qty: 25, }
             ]
         }
+    }
+
+    componentDidMount() {
+        console.log('Width', myRef.current.parentElement.clientWidth)
     }
 
     renderTableHeader() {
@@ -44,22 +52,25 @@ class PDF extends Component {
 
     render() { //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
         return (
-            <div className='pdfMain' ref={ref}>
-                <div>
-                    <img className='banner' src={Banner} ></img>
+            <div className='pdfMain'>
+                <div className='refDiv' ref={myRef}>
+                    <div className='banner'>
+                        <img src={Banner} alt='banner' ></img>
+                        <p className='bannerText' >Your partner in Intralogistics solutions</p>
+                    </div>
+                    <h1 id='title'>List of Parts for Opening 500 x 500</h1>
+                    <div className='pdfInner'   >
+                        <table id='students'>
+                            <tbody>
+                                <tr>{this.renderTableHeader()}</tr>
+                                {this.renderTableData()}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <h1 id='title'>List of Parts for Opening {window.innerWidth} x {window.innerHeight}</h1>
-                <div className='pdfInner' >
-                    <table id='students'>
-                        <tbody>
-                            <tr>{this.renderTableHeader()}</tr>
-                            {this.renderTableData()}
-                        </tbody>
-                    </table>
-                    <Pdf targetRef={ref} filename="code-example.pdf" options={options} >
-                        {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
-                    </Pdf>
-                </div>
+                <Pdf targetRef={myRef} filename="code-example.pdf" scale={0.8} >
+                    {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+                </Pdf>
             </div>
         )
     }

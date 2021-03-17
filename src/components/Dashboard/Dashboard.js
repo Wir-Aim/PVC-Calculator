@@ -2,15 +2,14 @@ import SliderComponent from "../Slider";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "./Dashboard.css";
-import PDF from "../PDF/PDF";
-import img1 from '../../images/Pvc-grades/pvc-anti-insect.jpg';
-import img2 from '../../images/Pvc-grades/pvc-anti-microbial-perforated.jpg';
-import img3 from '../../images/Pvc-grades/pvc-antimicrobial-standard.jpg';
-import img4 from '../../images/Pvc-grades/pvc-anti-static.jpg';
-import img5 from '../../images/Pvc-grades/pvc-doubled-ribbed.jpg';
-import img6 from '../../images/Pvc-grades/pvc-double-ribbed-polar.jpg';
-import img7 from '../../images/Pvc-grades/pvc-frosted.jpg';
-import img8 from '../../images/Pvc-grades/pvc-glowstrip.jpg';
+import img1 from '../../images/pvc-images/PVC-ANTISTATIC-GREEN.jpg';
+import img2 from '../../images/pvc-images/PSCL1M3003P.jpg';
+import img3 from '../../images/pvc-images/PSCL1M3003.jpg';
+import img4 from '../../images/pvc-images/PSCL1M3005P.jpg';
+import img5 from '../../images/pvc-images/PSCL1M3005.jpg';
+import img6 from '../../images/pvc-images/PSCL1M2002AM.jpg';
+import img7 from '../../images/pvc-images/PSCL1M2002.jpg';
+import img8 from '../../images/pvc-images/PSCL1M4004.jpg';
 import img9 from '../../images/Pvc-grades/pvc-opaque-colours.jpg';
 import img10 from '../../images/Pvc-grades/pvc-perforated.jpg';
 import img11 from '../../images/Pvc-grades/pvc-polar.jpg';
@@ -22,7 +21,16 @@ import { useState } from "react";
 import { NavLink } from 'react-router-dom'
 
 const overlapOptions = [{ value: "50", label: "50 mm" }, { value: "95", label: "95 mm" }, { value: "135", label: "135 mm" }];
-const stripOptions = [{ value: "200", label: "200 mm" }, { value: "300", label: "300 mm" }, { value: "400", label: "400 mm" }];
+const stripOptions = [
+  { value: 300, label: "PVC 300x3mm Anti Static Green" },
+  { value: '300', label: "PVC 300x3mm Clear polar" },
+  { value: 300, label: "PVC 300x3mm Clear standard" },
+  { value: '300', label: "PVC 300x5mm Clear ribbed polar" },
+  { value: 300, label: "PVC 300x5mm Clear ribbed" },
+  { value: '200', label: "PVC 200x3mm Anti Static Green" },
+  { value: 200, label: "PVC 200x2mm Clear standard" },
+  { value: 400, label: "PVC 400x4mm Clear standard" },
+];
 const gradeOptions = [
   { value: 1, label: 'Anti-Insect' },
   { value: 2, label: 'Anti-Microbial Perforated' },
@@ -40,7 +48,7 @@ const gradeOptions = [
   { value: 14, label: 'Welding' },
 ]
 const defaultOverlapOption = overlapOptions[0].value
-const defaultStripOption = stripOptions[0].value
+const defaultStripOption = stripOptions[0].label
 
 function Dashboard() {
   const [PvcImg, setPvcImage] = useState(img1);
@@ -128,6 +136,15 @@ function Dashboard() {
         1000
       )
     );
+    value.label === "PVC 300x3mm Anti Static Green" ? setPvcImage(img1)
+      : value.label === "PVC 300x3mm Clear polar" ? setPvcImage(img2)
+        : value.label === "PVC 300x3mm Clear standard" ? setPvcImage(img3)
+          : value.label === "PVC 300x5mm Clear ribbed polar" ? setPvcImage(img4)
+            : value.label === "PVC 300x5mm Clear ribbed" ? setPvcImage(img5)
+              : value.label === "PVC 200x3mm Anti Static Green" ? setPvcImage(img6)
+                : value.label === "PVC 200x2mm Clear standard" ? setPvcImage(img7)
+                  : value.label === "PVC 400x4mm Clear standard" ? setPvcImage(img8)
+                    : setPvcImage(img1)
   };
 
 
@@ -136,7 +153,7 @@ function Dashboard() {
       <div className="mainDiv">
         <div className="imageBlur">
           <div className='mainHeader' >
-            <img src={headLogo} />
+            <img src={headLogo} alt='dashboardlogo' />
             <div className='headerText'>
               <p>Your partner in Intralogistics solutions</p>
             </div>
@@ -181,7 +198,7 @@ function Dashboard() {
                 />
               </div>
               <div className="dropdown">
-                <p className="dropdown-text">Strip Width</p>
+                <p className="dropdown-text">Select PVC Type and Width</p>
                 <Dropdown
                   options={stripOptions}
                   onChange={onStripWidthChange}
@@ -203,18 +220,18 @@ function Dashboard() {
                   arrowClassName="dropdown-arrow"
                   placeholderClassName="dropdown-placeholder"
                   menuClassName="dropdown-list"
-                  // value={defaultStripOption}
                   placeholder="Select PVC Grade"
+                // value={defaultStripOption}
                 />
                 <div className='pvc-img-div' >
-                  <img className='pvc-img' src={PvcImg} />
+                  <img className='pvc-img' src={PvcImg} alt='pvcimages' />
                 </div>
               </div>
               <div>
                 <p className="label-text">{LabelValues} Strips Needed</p>
                 <p className="label-text">Total Length: {Label2Values}m</p>
               </div>
-              <PDF />
+              {/* <PDF /> */}
             </div>
           </div>
         </div>
