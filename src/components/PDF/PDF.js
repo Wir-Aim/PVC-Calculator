@@ -19,10 +19,10 @@ class PDF extends Component {
         this.myInput = React.createRef()
         this.state = { //state is by default an object
             students: [
-                { productNumber: 'PVC', qty: 21, },
-                { productNumber: 'PVC', qty: 19, },
-                { productNumber: 'PVC', qty: 16, },
-                { productNumber: 'PVC', qty: 25, }
+                { partNumber: 'PVC', qty: 21, },
+                { partNumber: 'PVC', qty: 19, },
+                { partNumber: 'PVC', qty: 16, },
+                { partNumber: 'PVC', qty: 25, }
             ]
         }
     }
@@ -40,10 +40,10 @@ class PDF extends Component {
 
     renderTableData() {
         return this.state.students.map((student, index) => {
-            const { id, productNumber, qty } = student //destructuring
+            const { id, partNumber, qty } = student //destructuring
             return (
                 <tr key={id}>
-                    <td className='tableData'>{productNumber}</td>
+                    <td className='tableData'>{partNumber}</td>
                     <td className='tableData'>{qty}</td>
                 </tr>
             )

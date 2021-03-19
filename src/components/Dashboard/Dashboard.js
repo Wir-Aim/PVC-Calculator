@@ -10,24 +10,24 @@ import img5 from '../../images/pvc-images/PSCL1M3005.jpg';
 import img6 from '../../images/pvc-images/PSCL1M2002AM.jpg';
 import img7 from '../../images/pvc-images/PSCL1M2002.jpg';
 import img8 from '../../images/pvc-images/PSCL1M4004.jpg';
-import img9 from '../../images/Pvc-grades/pvc-opaque-colours.jpg';
-import img10 from '../../images/Pvc-grades/pvc-perforated.jpg';
-import img11 from '../../images/Pvc-grades/pvc-polar.jpg';
-import img12 from '../../images/Pvc-grades/pvc-standard-clear.jpg';
-import img13 from '../../images/Pvc-grades/pvc-translucent-colours.jpg';
-import img14 from '../../images/Pvc-grades/pvc-welding.jpg';
+// import img9 from '../../images/Pvc-grades/pvc-opaque-colours.jpg'; 
+// import img10 from '../../images/Pvc-grades/pvc-perforated.jpg';
+// import img11 from '../../images/Pvc-grades/pvc-polar.jpg';
+// import img12 from '../../images/Pvc-grades/pvc-standard-clear.jpg';
+// import img13 from '../../images/Pvc-grades/pvc-translucent-colours.jpg';
+// import img14 from '../../images/Pvc-grades/pvc-welding.jpg';
 import headLogo from '../../images/logo/SPIMA.webp';
 import { useState } from "react";
 import { NavLink } from 'react-router-dom'
 
 const overlapOptions = [{ value: "50", label: "50 mm" }, { value: "95", label: "95 mm" }, { value: "135", label: "135 mm" }];
 const stripOptions = [
-  { value: 300, label: "PVC 300x3mm Anti Static Green" },
-  { value: '300', label: "PVC 300x3mm Clear polar" },
-  { value: 300, label: "PVC 300x3mm Clear standard" },
-  { value: '300', label: "PVC 300x5mm Clear ribbed polar" },
-  { value: 300, label: "PVC 300x5mm Clear ribbed" },
-  { value: '200', label: "PVC 200x3mm Anti Static Green" },
+  { value: 300.01, label: "PVC 300x3mm Anti Static Green" },
+  { value: 300.02, label: "PVC 300x3mm Clear polar" },
+  { value: 300.03, label: "PVC 300x3mm Clear standard" },
+  { value: 300.04, label: "PVC 300x5mm Clear ribbed polar" },
+  { value: 300., label: "PVC 300x5mm Clear ribbed" },
+  { value: 200.01, label: "PVC 200x3mm Anti Static Green" },
   { value: 200, label: "PVC 200x2mm Clear standard" },
   { value: 400, label: "PVC 400x4mm Clear standard" },
 ];
@@ -51,6 +51,7 @@ const defaultOverlapOption = overlapOptions[0].value
 const defaultStripOption = stripOptions[0].label
 
 function Dashboard() {
+  const [CurtainPlate, setCurtainPlate] = useState('300')
   const [PvcImg, setPvcImage] = useState(img1);
   const [WidthUpdate, setWidthUpdate] = useState([500]);
   const [HeightUpdate, setHeightUpdate] = useState([500]);
@@ -66,24 +67,24 @@ function Dashboard() {
     Math.ceil((HeightValues * LabelValues) / 1000)
   );
 
-  const onGradeChange = (value) => {
-    console.log('kiya Mila', value.value)
-    value.value === 1 ? setPvcImage(img1)
-      : value.value === 2 ? setPvcImage(img2)
-        : value.value === 3 ? setPvcImage(img3)
-          : value.value === 4 ? setPvcImage(img4)
-            : value.value === 5 ? setPvcImage(img5)
-              : value.value === 6 ? setPvcImage(img6)
-                : value.value === 7 ? setPvcImage(img7)
-                  : value.value === 8 ? setPvcImage(img8)
-                    : value.value === 9 ? setPvcImage(img9)
-                      : value.value === 10 ? setPvcImage(img10)
-                        : value.value === 11 ? setPvcImage(img11)
-                          : value.value === 12 ? setPvcImage(img12)
-                            : value.value === 13 ? setPvcImage(img13)
-                              : value.value === 14 ? setPvcImage(img14)
-                                : setPvcImage(img1)
-  }
+  // const onGradeChange = (value) => {
+  //   console.log('kiya Mila', value.value)
+  //   value.value === 1 ? setPvcImage(img1)
+  //     : value.value === 2 ? setPvcImage(img2)
+  //       : value.value === 3 ? setPvcImage(img3)
+  //         : value.value === 4 ? setPvcImage(img4)
+  //           : value.value === 5 ? setPvcImage(img5)
+  //             : value.value === 6 ? setPvcImage(img6)
+  //               : value.value === 7 ? setPvcImage(img7)
+  //                 : value.value === 8 ? setPvcImage(img8)
+  //                   : value.value === 9 ? setPvcImage(img9)
+  //                     : value.value === 10 ? setPvcImage(img10)
+  //                       : value.value === 11 ? setPvcImage(img11)
+  //                         : value.value === 12 ? setPvcImage(img12)
+  //                           : value.value === 13 ? setPvcImage(img13)
+  //                             : value.value === 14 ? setPvcImage(img14)
+  //                   : setPvcImage(img1)
+  // }
 
   const onWidthUpdate = (update) => {
     setWidthUpdate(update);
@@ -136,6 +137,7 @@ function Dashboard() {
         1000
       )
     );
+    setCurtainPlate(Math.floor(value.value))
     value.label === "PVC 300x3mm Anti Static Green" ? setPvcImage(img1)
       : value.label === "PVC 300x3mm Clear polar" ? setPvcImage(img2)
         : value.label === "PVC 300x3mm Clear standard" ? setPvcImage(img3)
@@ -152,7 +154,7 @@ function Dashboard() {
     <>
       <div className="mainDiv">
         <div className="imageBlur">
-          <div className='mainHeader' >
+          <div className='mainHeader'>
             <img src={headLogo} alt='dashboardlogo' />
             <div className='headerText'>
               <p>Your partner in Intralogistics solutions</p>
@@ -163,8 +165,8 @@ function Dashboard() {
           </div>
           <div className='main-body'>
             <div className="main-head">
-              <NavLink exact activeClassName='headerActive' to='/' className="header">PVC Strip Curtain Calculator</NavLink>
-              <NavLink exact activeClassName='headerActive' to='/dockleveller' className="header">Dock Leveller</NavLink>
+              <NavLink exact activeClassName='headerActive' to='/' className="header1">PVC Strip Curtain Calculator</NavLink>
+              <NavLink exact activeClassName='headerActive' to='/dockleveller' className="header2">Dock Leveller</NavLink>
             </div>
             <div className="body-content">
               <div className="slider">
@@ -211,7 +213,10 @@ function Dashboard() {
                   placeholder="Select an option"
                 />
               </div>
-              <div className="select-dropdown">
+              <div className='pvc-img-div' >
+                <img className='pvc-img' src={PvcImg} alt='pvcimages' />
+              </div>
+              {/* <div className="select-dropdown">
                 <Dropdown
                   options={gradeOptions}
                   onChange={onGradeChange}
@@ -223,12 +228,11 @@ function Dashboard() {
                   placeholder="Select PVC Grade"
                 // value={defaultStripOption}
                 />
-                <div className='pvc-img-div' >
-                  <img className='pvc-img' src={PvcImg} alt='pvcimages' />
-                </div>
-              </div>
+              </div> */}
               <div>
-                <p className="label-text">{LabelValues} Strips Needed</p>
+                <div className='label-text-div' >
+                  <p className="label-text">{LabelValues} Strips Needed</p>
+                </div>
                 <p className="label-text">Total Length: {Label2Values}m</p>
               </div>
               {/* <PDF /> */}

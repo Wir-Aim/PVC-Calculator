@@ -35,20 +35,42 @@
   border: 1px solid;
 }
 
-.header {
+.header1 {
   flex: 1;
+  width: 50%;
   height: 80px;
   background-color: #3bb678;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom-right-radius: 20px;
   text-decoration: none;
+  color: white;
+}
+
+.header2 {
+  flex: 1;
+  width: 50%;
+  height: 80px;
+  background-color: #3bb678;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom-left-radius: 20px;
+  text-decoration: none;
+  color: white;
 }
 
 .headerActive {
   text-decoration: none;
-  border-bottom: 0px;
+  border: 0px;
+  color: black;
   background-color: #3bb67977;
 }
 
@@ -128,12 +150,19 @@
 }
 
 .pvc-img {
-  width: 150px;
   height: 150px;
-  border-radius: 20px;
+  /* width: 350px; */
+  /* border-radius: 20px; */
 }
 .pvc-img-div {
-  margin-left: 40px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  background-color: white;
+  border-radius: 20px;
+  /* margin-left: 40px; */
 }
 
 .dropdown-inner {
@@ -159,9 +188,18 @@
   border-style: solid;
   border-width: 5px 5px 0;
 }
+
+.label-text-div {
+  flex-direction: row;
+  }
+
 .label-text {
   height: 20px;
   font-size: 40px;
+}
+
+.pcstext {
+  font-weight: bold;
 }
 
 /* @media (max-height: 300px) {
@@ -245,7 +283,8 @@
   .label-text {
     font-size: 21px;
   }
-  .header {
+  .header1,
+  .header2 {
     font-size: 23px;
   }
 
@@ -262,7 +301,8 @@
   .label-text {
     font-size: 23px;
   }
-  .header {
+  .header1,
+  .header2 {
     font-size: 23px;
   }
 }
@@ -272,7 +312,8 @@
   .label-text {
     font-size: 23px;
   }
-  .header {
+  .header1,
+  .header2 {
     font-size: 25px;
   }
 }
@@ -282,7 +323,8 @@
   .label-text {
     font-size: 30px;
   }
-  .header {
+  .header1,
+  .header2 {
     font-size: 32px;
   }
 }
