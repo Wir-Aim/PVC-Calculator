@@ -157,7 +157,7 @@ function Dashboard() {
           <div className='mainHeader'>
             <img src={headLogo} alt='dashboardlogo' />
             <div className='headerText'>
-              <p>Your partner in Intralogistics solutions</p>
+              <p>Your partner in Intralogistics solutions</p> 
             </div>
             <div className='header2Text'>
               <p>Online Tools</p>

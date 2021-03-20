@@ -5,15 +5,14 @@
   justify-content: center; */
 }
 
-.mainHeader {
-  /* flex: 1; */
+/* .mainHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #025d5f;
-}
+} */
 
-.headerText {
+/* .headerText {
   font-size: 20px;
   font-family: "Futura";
   color: #3bb678;
@@ -26,7 +25,7 @@
   font-family: "Futura";
   color: #3bb678;
   letter-spacing: 2px;
-}
+} */
 
 .main-head {
   flex: 1;
@@ -42,7 +41,7 @@
   border: 1px solid;
 }
 
-.header1 {
+/* .header1 {
   flex: 1;
   width: 50%;
   height: 80px;
@@ -50,12 +49,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
-  border-left: 1px solid black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.267);
+  border-right: 1px solid rgba(0, 0, 0, 0.267);
+  border-left: 1px solid rgba(0, 0, 0, 0.267);
   border-bottom-right-radius: 20px;
   text-decoration: none;
   color: white;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 .header2 {
@@ -66,20 +66,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
-  border-left: 1px solid black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.267);
+  border-right: 1px solid rgba(0, 0, 0, 0.267);
+  border-left: 1px solid rgba(0, 0, 0, 0.267);
   border-bottom-left-radius: 20px;
   text-decoration: none;
   color: white;
-}
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
+} */
 
 .headerActive {
   text-decoration: none;
   border: 0px;
   color: black;
   background-color: #3bb67977;
-  /* border-bottom: 0px; */
+  border-color: #3bb67977;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.4);
 }
 
 .headerActive:hover {
