@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/PVC-Calculator/static/css/main.a4ec5f5a.chunk.css",
+    "main.js": "/PVC-Calculator/static/js/main.86651fbd.chunk.js",
+    "main.js.map": "/PVC-Calculator/static/js/main.86651fbd.chunk.js.map",
+    "runtime-main.js": "/PVC-Calculator/static/js/runtime-main.820dc7b7.js",
+    "runtime-main.js.map": "/PVC-Calculator/static/js/runtime-main.820dc7b7.js.map",
+    "static/css/2.fe708519.chunk.css": "/PVC-Calculator/static/css/2.fe708519.chunk.css",
+    "static/js/2.b6cbbc55.chunk.js": "/PVC-Calculator/static/js/2.b6cbbc55.chunk.js",
+    "static/js/2.b6cbbc55.chunk.js.map": "/PVC-Calculator/static/js/2.b6cbbc55.chunk.js.map",
+    "static/js/3.23c249c0.chunk.js": "/PVC-Calculator/static/js/3.23c249c0.chunk.js",
+    "static/js/3.23c249c0.chunk.js.map": "/PVC-Calculator/static/js/3.23c249c0.chunk.js.map",
+    "index.html": "/PVC-Calculator/index.html",
+    "static/css/2.fe708519.chunk.css.map": "/PVC-Calculator/static/css/2.fe708519.chunk.css.map",
+    "static/css/main.a4ec5f5a.chunk.css.map": "/PVC-Calculator/static/css/main.a4ec5f5a.chunk.css.map",
+    "static/js/2.b6cbbc55.chunk.js.LICENSE.txt": "/PVC-Calculator/static/js/2.b6cbbc55.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/PVC-Calculator/static/media/Futura-Round-Medium.c1a25aff.ttf",
+    "static/media/PSCL1M2002.aebc494f.jpg": "/PVC-Calculator/static/media/PSCL1M2002.aebc494f.jpg",
+    "static/media/PSCL1M2002AM.6e0ae24d.jpg": "/PVC-Calculator/static/media/PSCL1M2002AM.6e0ae24d.jpg",
+    "static/media/PSCL1M3003.aebc494f.jpg": "/PVC-Calculator/static/media/PSCL1M3003.aebc494f.jpg",
+    "static/media/PSCL1M3003P.75ce49f2.jpg": "/PVC-Calculator/static/media/PSCL1M3003P.75ce49f2.jpg",
+    "static/media/PSCL1M3005.516f3f1b.jpg": "/PVC-Calculator/static/media/PSCL1M3005.516f3f1b.jpg",
+    "static/media/PSCL1M3005P.516f3f1b.jpg": "/PVC-Calculator/static/media/PSCL1M3005P.516f3f1b.jpg",
+    "static/media/PSCL1M4004.aebc494f.jpg": "/PVC-Calculator/static/media/PSCL1M4004.aebc494f.jpg",
+    "static/media/PVC-ANTISTATIC-GREEN.d26521a0.jpg": "/PVC-Calculator/static/media/PVC-ANTISTATIC-GREEN.d26521a0.jpg",
+    "static/media/SPIMA.cfdb9b2c.webp": "/PVC-Calculator/static/media/SPIMA.cfdb9b2c.webp",
+    "static/media/Dashboard.css": "/PVC-Calculator/static/media/backimage2.2e2f0ef0.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.820dc7b7.js",
+    "static/css/2.fe708519.chunk.css",
+    "static/js/2.b6cbbc55.chunk.js",
+    "static/css/main.a4ec5f5a.chunk.css",
+    "static/js/main.86651fbd.chunk.js"
+  ]
+}
