@@ -5,14 +5,14 @@
   justify-content: center; */
 }
 
-/* .mainHeader {
+.mainHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #025d5f;
-} */
+}
 
-/* .headerText {
+.headerText {
   font-size: 20px;
   font-family: "Futura";
   color: #3bb678;
@@ -25,7 +25,7 @@
   font-family: "Futura";
   color: #3bb678;
   letter-spacing: 2px;
-} */
+}
 
 .main-head {
   flex: 1;
@@ -41,7 +41,7 @@
   border: 1px solid;
 }
 
-/* .header1 {
+.header1 {
   flex: 1;
   width: 50%;
   height: 80px;
@@ -55,7 +55,7 @@
   border-bottom-right-radius: 20px;
   text-decoration: none;
   color: white;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
+  /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4); */
 }
 
 .header2 {
@@ -72,15 +72,15 @@
   border-bottom-left-radius: 20px;
   text-decoration: none;
   color: white;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
-} */
+  /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4); */
+}
 
 .headerActive {
   text-decoration: none;
   border: 0px;
+  border-top: 1px solid #3bb67977;
   color: black;
   background-color: #3bb67977;
-  border-color: #3bb67977;
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.4);
 }
 
@@ -90,4 +90,115 @@
 
 .head {
   text-align: center;
+}
+@media (max-width: 374px) {
+  .header1,
+  .header2 {
+    font-size: 10px;
+    height: 35px;
+  }
+  .headerText,
+  .header2Text {
+    display: none;
+  }
+
+  .mainHeader {
+    display: flex;
+    justify-content: center;
+  }
+  .headLogo {
+    height: 50px;
+  }
+}
+
+@media (min-width: 375px) {
+  .header1,
+  .header2 {
+    font-size: 13px;
+    height: 40px;
+  }
+
+  .headerText,
+  .header2Text {
+    display: none;
+  }
+  .mainHeader {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* .headLogo {
+    height: 50px;
+  } */
+}
+
+@media (min-width: 768px) {
+  .header1,
+  .header2 {
+    font-size: 23px;
+    height: 60px;
+  }
+  .headerText {
+    font-size: 14px;
+    display: block;
+  }
+  .header2Text {
+    font-size: 14px;
+    display: block;
+    margin-right: 10px;
+  }
+  .mainHeader {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 1336px) {
+  .header1,
+  .header2 {
+    font-size: 23px;
+    height: 70px;
+  }
+  .headerText {
+    font-size: 16px;
+    display: block;
+    margin-right: 20px;
+  }
+  .header2Text {
+    font-size: 16px;
+    display: block;
+    margin-right: 20px;
+  }
+}
+@media (min-width: 1440px) {
+  .header1,
+  .header2 {
+    font-size: 25px;
+    height: 80px;
+  }
+  .headerText {
+    font-size: 18px;
+    display: block;
+    margin-right: 40px;
+  }
+  .header2Text {
+    font-size: 18px;
+    display: block;
+    margin-right: 40px;
+  }
+}
+@media (min-width: 1920px) {
+  .header1,
+  .header2 {
+    font-size: 32px;
+  }
+  .headerText {
+    font-size: 20px;
+    display: block;
+    margin-right: 50px;
+  }
+  .header2Text {
+    font-size: 20px;
+    display: block;
+    margin-right: 50px;
+  }
 }

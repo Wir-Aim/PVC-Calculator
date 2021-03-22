@@ -155,9 +155,9 @@ function Dashboard() {
       <div className="mainDiv">
         <div className="imageBlur">
           <div className='mainHeader'>
-            <img src={headLogo} alt='dashboardlogo' />
+            <img className='headLogo'  src={headLogo} alt='dashboardlogo' />
             <div className='headerText'>
-              <p>Your partner in Intralogistics solutions</p> 
+              <p>Your partner in Intralogistics solutions</p>
             </div>
             <div className='header2Text'>
               <p>Online Tools</p>
@@ -230,9 +230,7 @@ function Dashboard() {
                 />
               </div> */}
               <div>
-                <div className='label-text-div' >
-                  <p className="label-text">{LabelValues} Strips Needed</p>
-                </div>
+                <p className="label-text">{LabelValues} Strips Needed</p>
                 <p className="label-text">Total Length: {Label2Values}m</p>
               </div>
               {/* <PDF /> */}

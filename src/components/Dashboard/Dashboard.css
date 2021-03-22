@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  /* overflow-y: auto; */
 }
 
 .imageBlur {
@@ -12,6 +13,7 @@
   width: 100%;
   background-color: rgba(214, 211, 211, 0.7);
   flex-direction: row;
+  /* overflow-y: auto; */
 }
 
 .main-body {
@@ -49,7 +51,7 @@
   border-bottom-right-radius: 20px;
   text-decoration: none;
   color: white;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
+  /* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4); */
 }
 
 .header2 {
@@ -66,15 +68,15 @@
   border-bottom-left-radius: 20px;
   text-decoration: none;
   color: white;
-  box-shadow: 1px 1px 1 px 1px rgba(0, 0, 0, 0.4);
+  /* box-shadow: 1px 1px 1 px 1px rgba(0, 0, 0, 0.4); */
 }
 
 .headerActive {
   text-decoration: none;
   border: 0px;
+  border-top: 1px solid #3bb67977;
   color: black;
   background-color: #3bb67977;
-  border-color: #3bb67977;
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.4);
 }
 
@@ -84,6 +86,9 @@
   align-items: center;
   justify-content: space-between;
   background-color: #025d5f;
+}
+.headLogo {
+  height: 70px;
 }
 
 .headerText {
@@ -206,42 +211,21 @@
   font-weight: bold;
 }
 
-/* @media (max-height: 300px) {
+@media (max-width: 374px) {
   .slider-text,
   .dropdown-text,
   .label-text {
-    font-size: 20px;
+    font-size: 16px;
   }
-  .dropdown-inner {
-    width: 100px;
-  }
-  .slider {
-    width: 180px;
-  }
-} */
-/* @media (max-height: 600px) {
-  .slider-text,
+
   .dropdown-text,
   .label-text {
-    font-size: 20px;
+    height: 8px;
   }
-  .dropdown-inner {
-    width: 300px;
-  }
-  .slider {
-    width: 280px;
-  }
-} */
-@media (max-width: 350px) {
-  .slider-text,
-  .dropdown-text,
-  .label-text {
-    font-size: 20px;
-  }
-  .header1 ,
+  .header1,
   .header2 {
-    font-size: 12px;
-    height: 20px;
+    font-size: 10px;
+    height: 35px;
   }
   .headerText,
   .header2Text {
@@ -250,6 +234,12 @@
   .dropdown-inner {
     width: 200px;
   }
+  .dropdown-placeholder {
+    font-size: 12px;
+  }
+  .dropdown-list {
+    font-size: 13px;
+  }
   .select-dropdown-inner {
     width: 100px;
   }
@@ -257,26 +247,39 @@
     width: 90px;
     height: 90px;
   }
+  .mainHeader {
+    display: flex;
+    justify-content: center;
+  }
+  .headLogo {
+    height: 50px;
+  }
   .slider {
-    width: 220px;
+    width: 210px;
   }
   .pvc-img-div {
     width: 200px;
   }
 }
 
-@media (min-width: 350px) {
+@media (min-width: 375px) {
   .slider-text,
   .dropdown-text,
   .label-text {
-    font-size: 23px;
+    font-size: 18px;
   }
+
+  .dropdown-text,
+  .label-text {
+    height: 9px;
+  }
+
   .header1,
   .header2 {
-    font-size: 12px;
+    font-size: 15px;
     height: 40px;
   }
-  
+
   .headerText,
   .header2Text {
     display: none;
@@ -286,20 +289,27 @@
     justify-content: center;
   }
   .dropdown-inner {
-    width: 300px;
+    width: 250px;
   }
-  /* .select-dropdown-inner {
-    width: 150px;
+  .dropdown-placeholder {
+    font-size: 14px;
   }
-  .pvc-img {
-    width: 120px;
+  /* .dropdown-list {
     height: 120px;
   } */
+  /* .headLogo {
+    height: 50px;
+  } */
+
   .slider {
-    width: 310px;
+    width: 270px;
+  }
+  .pvc-img {
+    width: 110px;
+    height: 110px;
   }
   .pvc-img-div {
-    width: 300px;
+    width: 250px;
   }
 }
 
@@ -309,10 +319,14 @@
   .label-text {
     font-size: 21px;
   }
+  .dropdown-text,
+  .label-text {
+    height: 11px;
+  }
   .header1,
   .header2 {
     font-size: 23px;
-    height: 80px;
+    height: 60px;
   }
   .headerText {
     font-size: 14px;
@@ -331,8 +345,15 @@
   .dropdown-inner {
     width: 400px;
   }
+  .dropdown-placeholder {
+    font-size: 17px;
+  }
   .slider {
     width: 410px;
+  }
+  .pvc-img {
+    width: 125px;
+    height: 125px;
   }
   .pvc-img-div {
     width: 400px;
@@ -344,9 +365,15 @@
   .label-text {
     font-size: 23px;
   }
+  .dropdown-text,
+  .label-text {
+    height: 12px;
+  }
+  
   .header1,
   .header2 {
     font-size: 23px;
+    height: 70px;
   }
   .headerText {
     font-size: 16px;
@@ -358,6 +385,10 @@
     display: block;
     margin-right: 20px;
   }
+  .pvc-img {
+    width: 140px;
+    height: 140px;
+  }
 }
 @media (min-width: 1440px) {
   .slider-text,
@@ -365,9 +396,17 @@
   .label-text {
     font-size: 23px;
   }
+  .dropdown-text,
+  .label-text {
+    height: 12px;
+  }
+  .dropdown-placeholder {
+    font-size: 20px;
+  }
   .header1,
   .header2 {
     font-size: 25px;
+    height: 80px;
   }
   .headerText {
     font-size: 18px;
@@ -386,11 +425,15 @@
   .label-text {
     font-size: 30px;
   }
+  .dropdown-text,
+  .label-text {
+    height: 20px;
+  }
   .header1,
   .header2 {
     font-size: 32px;
   }
-  headerText {
+  .headerText {
     font-size: 20px;
     display: block;
     margin-right: 50px;
