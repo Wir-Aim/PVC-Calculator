@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/PVC-Calculator/static/css/main.a4ec5f5a.chunk.css",
-    "main.js": "/PVC-Calculator/static/js/main.1211fb34.chunk.js",
-    "main.js.map": "/PVC-Calculator/static/js/main.1211fb34.chunk.js.map",
+    "main.js": "/PVC-Calculator/static/js/main.d29bc517.chunk.js",
+    "main.js.map": "/PVC-Calculator/static/js/main.d29bc517.chunk.js.map",
     "runtime-main.js": "/PVC-Calculator/static/js/runtime-main.17b9a739.js",
     "runtime-main.js.map": "/PVC-Calculator/static/js/runtime-main.17b9a739.js.map",
     "static/css/2.fe708519.chunk.css": "/PVC-Calculator/static/css/2.fe708519.chunk.css",
-    "static/js/2.fbd7e5ed.chunk.js": "/PVC-Calculator/static/js/2.fbd7e5ed.chunk.js",
-    "static/js/2.fbd7e5ed.chunk.js.map": "/PVC-Calculator/static/js/2.fbd7e5ed.chunk.js.map",
+    "static/js/2.41cb1f55.chunk.js": "/PVC-Calculator/static/js/2.41cb1f55.chunk.js",
+    "static/js/2.41cb1f55.chunk.js.map": "/PVC-Calculator/static/js/2.41cb1f55.chunk.js.map",
     "static/js/3.366d42f9.chunk.js": "/PVC-Calculator/static/js/3.366d42f9.chunk.js",
     "static/js/3.366d42f9.chunk.js.map": "/PVC-Calculator/static/js/3.366d42f9.chunk.js.map",
     "index.html": "/PVC-Calculator/index.html",
     "static/css/2.fe708519.chunk.css.map": "/PVC-Calculator/static/css/2.fe708519.chunk.css.map",
     "static/css/main.a4ec5f5a.chunk.css.map": "/PVC-Calculator/static/css/main.a4ec5f5a.chunk.css.map",
-    "static/js/2.fbd7e5ed.chunk.js.LICENSE.txt": "/PVC-Calculator/static/js/2.fbd7e5ed.chunk.js.LICENSE.txt",
+    "static/js/2.41cb1f55.chunk.js.LICENSE.txt": "/PVC-Calculator/static/js/2.41cb1f55.chunk.js.LICENSE.txt",
     "static/media/index.css": "/PVC-Calculator/static/media/Futura-Round-Medium.c1a25aff.ttf",
     "static/media/PSCL1M2002.aebc494f.jpg": "/PVC-Calculator/static/media/PSCL1M2002.aebc494f.jpg",
     "static/media/PSCL1M2002AM.6e0ae24d.jpg": "/PVC-Calculator/static/media/PSCL1M2002AM.6e0ae24d.jpg",
@@ -29,8 +29,8 @@
   "entrypoints": [
     "static/js/runtime-main.17b9a739.js",
     "static/css/2.fe708519.chunk.css",
-    "static/js/2.fbd7e5ed.chunk.js",
+    "static/js/2.41cb1f55.chunk.js",
     "static/css/main.a4ec5f5a.chunk.css",
-    "static/js/main.1211fb34.chunk.js"
+    "static/js/main.d29bc517.chunk.js"
   ]
 }
