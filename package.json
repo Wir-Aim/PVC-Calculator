@@ -1,5 +1,6 @@
 {
   "name": "new-app",
+  "homepage": "https://Wir-Aim.github.io/PVC-Calculator",
   "version": "0.1.0",
   "private": true,
   "engines": {

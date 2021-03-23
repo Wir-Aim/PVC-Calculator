@@ -2,17 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-// import Dashboard from './components/Dashboard/Dashboard'
+import Dashboard from './components/Dashboard/Dashboard'
 // import DockLeveller from "./components/DockLeveller/DockLeveller";
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <App />
-    </BrowserRouter>
-    {/* <Dashboard /> */}
+    </BrowserRouter> */}
+    <Dashboard />
     {/* <DockLeveller /> */}
   </React.StrictMode>,
   document.getElementById('root')
