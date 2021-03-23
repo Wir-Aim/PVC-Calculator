@@ -165,8 +165,8 @@ function Dashboard() {
           </div>
           <div className='main-body'>
             <div className="main-head">
-              <NavLink exact activeClassName='headerActive' to='/' className="header1">PVC Strip Curtain Calculator</NavLink>
-              <NavLink exact activeClassName='headerActive' to='/dockleveller' className="header2">Dock Leveller</NavLink>
+              {/* <NavLink exact activeClassName='headerActive' to='/' className="header1">PVC Strip Curtain Calculator</NavLink> */}
+              {/* <NavLink exact activeClassName='headerActive' to='/dockleveller' className="header2">Dock Leveller</NavLink> */}
             </div>
             <div className="body-content">
               <div className="slider">
