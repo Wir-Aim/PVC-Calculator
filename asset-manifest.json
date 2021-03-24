@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/PVC-Calculator/static/css/main.53c78c16.chunk.css",
+    "main.css": "/PVC-Calculator/static/css/main.140b1a8b.chunk.css",
     "main.js": "/PVC-Calculator/static/js/main.b781422c.chunk.js",
     "main.js.map": "/PVC-Calculator/static/js/main.b781422c.chunk.js.map",
     "runtime-main.js": "/PVC-Calculator/static/js/runtime-main.7663162d.js",
@@ -12,7 +12,7 @@
     "static/js/3.de9866bd.chunk.js.map": "/PVC-Calculator/static/js/3.de9866bd.chunk.js.map",
     "index.html": "/PVC-Calculator/index.html",
     "static/css/2.fe708519.chunk.css.map": "/PVC-Calculator/static/css/2.fe708519.chunk.css.map",
-    "static/css/main.53c78c16.chunk.css.map": "/PVC-Calculator/static/css/main.53c78c16.chunk.css.map",
+    "static/css/main.140b1a8b.chunk.css.map": "/PVC-Calculator/static/css/main.140b1a8b.chunk.css.map",
     "static/js/2.64a83e48.chunk.js.LICENSE.txt": "/PVC-Calculator/static/js/2.64a83e48.chunk.js.LICENSE.txt",
     "static/media/index.css": "/PVC-Calculator/static/media/Futura-Round-Medium.c1a25aff.ttf",
     "static/media/PSCL1M2002.aebc494f.jpg": "/PVC-Calculator/static/media/PSCL1M2002.aebc494f.jpg",
@@ -30,7 +30,7 @@
     "static/js/runtime-main.7663162d.js",
     "static/css/2.fe708519.chunk.css",
     "static/js/2.64a83e48.chunk.js",
-    "static/css/main.53c78c16.chunk.css",
+    "static/css/main.140b1a8b.chunk.css",
     "static/js/main.b781422c.chunk.js"
   ]
 }
