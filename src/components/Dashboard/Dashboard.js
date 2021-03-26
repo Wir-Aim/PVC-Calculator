@@ -1,7 +1,9 @@
 import SliderComponent from "../Slider";
+import React, { createContext, useState } from 'react'
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "./Dashboard.css";
+import Pdf2 from "../PDF2/PDF2";
 import img1 from '../../images/pvc-images/PVC-ANTISTATIC-GREEN.jpg';
 import img2 from '../../images/pvc-images/PSCL1M3003P.jpg';
 import img3 from '../../images/pvc-images/PSCL1M3003.jpg';
@@ -17,7 +19,6 @@ import img8 from '../../images/pvc-images/PSCL1M4004.jpg';
 // import img13 from '../../images/Pvc-grades/pvc-translucent-colours.jpg';
 // import img14 from '../../images/Pvc-grades/pvc-welding.jpg';
 import headLogo from '../../images/logo/SPIMA.webp';
-import { useState } from "react";
 import { NavLink } from 'react-router-dom'
 
 const overlapOptions = [{ value: "50", label: "50 mm" }, { value: "95", label: "95 mm" }, { value: "135", label: "135 mm" }];
@@ -31,27 +32,15 @@ const stripOptions = [
   { value: 200, label: "PVC 200x2mm Clear standard" },
   { value: 400, label: "PVC 400x4mm Clear standard" },
 ];
-const gradeOptions = [
-  { value: 1, label: 'Anti-Insect' },
-  { value: 2, label: 'Anti-Microbial Perforated' },
-  { value: 3, label: 'Anti-Microbial Standard' },
-  { value: 4, label: 'Anti-Static' },
-  { value: 5, label: 'Doubled Ripped' },
-  { value: 6, label: 'Doubled Ripped Polar' },
-  { value: 7, label: 'Frosted' },
-  { value: 8, label: 'Glowstrip' },
-  { value: 9, label: 'Opaque Colours' },
-  { value: 10, label: 'Perforated' },
-  { value: 11, label: 'Polar' },
-  { value: 12, label: 'Standard Clear' },
-  { value: 13, label: 'Translucent Colours' },
-  { value: 14, label: 'Welding' },
-]
+
 const defaultOverlapOption = overlapOptions[0].value
 const defaultStripOption = stripOptions[0].label
 
+const PdfValues = createContext();
+
 function Dashboard() {
   const [CurtainPlate, setCurtainPlate] = useState('300')
+  const [CurtainType, setCurtainType] = useState('PVC 300x3mm Anti Static Green')
   const [PvcImg, setPvcImage] = useState(img1);
   const [WidthUpdate, setWidthUpdate] = useState([500]);
   const [HeightUpdate, setHeightUpdate] = useState([500]);
@@ -96,6 +85,7 @@ function Dashboard() {
     );
   };
 
+
   const onHeightUpdate = (update) => {
     setHeightUpdate(update);
     setLabel2Values(Math.ceil((update * LabelValues) / 1000));
@@ -138,6 +128,7 @@ function Dashboard() {
       )
     );
     setCurtainPlate(Math.floor(value.value))
+    setCurtainType(value.label)
     value.label === "PVC 300x3mm Anti Static Green" ? setPvcImage(img1)
       : value.label === "PVC 300x3mm Clear polar" ? setPvcImage(img2)
         : value.label === "PVC 300x3mm Clear standard" ? setPvcImage(img3)
@@ -155,7 +146,7 @@ function Dashboard() {
       <div className="mainDiv">
         <div className="imageBlur">
           <div className='mainHeader'>
-            <img className='headLogo'  src={headLogo} alt='dashboardlogo' />
+            <img className='headLogo' src={headLogo} alt='dashboardlogo' />
             <div className='headerText'>
               <p>Your partner in Intralogistics solutions</p>
             </div>
@@ -165,8 +156,8 @@ function Dashboard() {
           </div>
           <div className='main-body'>
             <div className="main-head">
-              {/* <NavLink exact activeClassName='headerActive' to='/' className="header1">PVC Strip Curtain Calculator</NavLink> */}
-              {/* <NavLink exact activeClassName='headerActive' to='/dockleveller' className="header2">Dock Leveller</NavLink> */}
+              <NavLink exact activeClassName='headerActive' className='header1' to='/' >PVC Strip Curtain Calculator</NavLink>
+              <NavLink exact activeClassName='headerActive' className='header2' to='/dock' >Dock Leveller</NavLink>
             </div>
             <div className="body-content">
               <div className="slider">
@@ -216,24 +207,24 @@ function Dashboard() {
               <div className='pvc-img-div' >
                 <img className='pvc-img' src={PvcImg} alt='pvcimages' />
               </div>
-              {/* <div className="select-dropdown">
-                <Dropdown
-                  options={gradeOptions}
-                  onChange={onGradeChange}
-                  // className='main-dropdown'
-                  controlClassName="select-dropdown-inner"
-                  arrowClassName="dropdown-arrow"
-                  placeholderClassName="dropdown-placeholder"
-                  menuClassName="dropdown-list"
-                  placeholder="Select PVC Grade"
-                // value={defaultStripOption}
-                />
-              </div> */}
-              <div>
-                <p className="label-text">{LabelValues} Strips Needed</p>
-                <p className="label-text">Total Length: {Label2Values}m</p>
+              <div className='bottom-label' >
+                <div className='label-head' >
+                  <p className="label-text">LIST OF PARTS:</p><button className='genBtn' >
+                    <NavLink target='_blank' className='genLink' exact to='/pdf2' >Generate PDF</NavLink>
+                  </button>
+                </div>
+                <p className="part-label-text">{CurtainType}: {Label2Values} m</p>
+                <p className="part-label-text">PVC-RAIL-985: {Math.ceil(WidthUpdate / 985)} Pcs</p>
+                <p className="part-label-text">PVC-PLATE-{CurtainPlate}-SS: {LabelValues} Pcs</p>
+                <PdfValues.Provider value={'asd'} >
+                </PdfValues.Provider>
+                {/* <p className="label-text">Total Length: {Label2Values}m</p>
+                  <p className="part-label-text">{LabelValues} Strips Needed</p> */}
               </div>
               {/* <PDF /> */}
+              {/* <button className='genBtn' >
+                <NavLink className='genLink' exact to='/pdf' >Generate PDF</NavLink>
+              </button> */}
             </div>
           </div>
         </div>
@@ -243,3 +234,4 @@ function Dashboard() {
 }
 
 export default Dashboard;
+export { PdfValues };

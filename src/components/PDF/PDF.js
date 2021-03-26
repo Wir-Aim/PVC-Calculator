@@ -4,14 +4,6 @@ import Pdf from 'react-to-pdf'
 import "./PDF.css";
 
 const myRef = React.createRef();
-const myInput = React.createRef()
-
-
-const options = {
-    orientation: 'l',
-    unit: 'px',
-    // format: [576,252]
-};
 
 class PDF extends Component {
     constructor(props) {

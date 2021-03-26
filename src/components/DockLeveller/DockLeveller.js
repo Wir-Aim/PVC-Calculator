@@ -17,8 +17,8 @@ function DockLeveller() {
                     </div>
                 </div>
                 <div className="main-head">
-                    <NavLink exact activeClassName='headerActive' to='/' className="header1">PVC Strip Curtain Calculator</NavLink>
-                    <NavLink exact activeClassName='headerActive' to='/dockleveller' className="header2">Dock Leveller</NavLink>
+                    <NavLink exact activeClassName='headerActive' className='header1' to='/' >PVC Strip Curtain Calculator</NavLink>
+                    <NavLink exact activeClassName='headerActive' className='header2' to='/dock' >Dock Leveller</NavLink>
                 </div>
                 <h1 className='head'>DOCK LEVELLER</h1>
             </div>
