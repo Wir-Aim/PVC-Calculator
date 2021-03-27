@@ -23,6 +23,7 @@
     "react-compound-slider": "^3.3.1",
     "react-dom": "^17.0.1",
     "react-dropdown": "^1.9.2",
+    "react-icons": "^4.2.0",
     "react-responsive": "^8.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",

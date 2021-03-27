@@ -3,6 +3,7 @@ import React, { createContext, useState } from 'react'
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "./Dashboard.css";
+import { AiOutlineFilePdf } from "react-icons/ai";
 import Pdf2 from "../PDF2/PDF2";
 import img1 from '../../images/pvc-images/PVC-ANTISTATIC-GREEN.jpg';
 import img2 from '../../images/pvc-images/PSCL1M3003P.jpg';
@@ -38,7 +39,7 @@ const defaultStripOption = stripOptions[0].label
 
 const PdfValues = createContext();
 
-function Dashboard() {
+function Dashboard(props) {
   const [CurtainPlate, setCurtainPlate] = useState('300')
   const [CurtainType, setCurtainType] = useState('PVC 300x3mm Anti Static Green')
   const [PvcImg, setPvcImage] = useState(img1);
@@ -74,6 +75,18 @@ function Dashboard() {
   //                             : value.value === 14 ? setPvcImage(img14)
   //                   : setPvcImage(img1)
   // }
+
+  const handleSubmit = () => {
+    let part1 = CurtainType
+    let qty1 = `${Label2Values} m`
+    let part2 = 'PVC-RAIL-985'
+    let qty2 = `${Math.ceil(WidthUpdate / 985)} Pcs`
+    let part3 = `PVC-PLATE-${CurtainPlate}-SS`
+    let qty3 = `${LabelValues} Pcs`
+    props.history.push("/pdf2", {
+      WidthUpdate, HeightUpdate, part1, part2, part3, qty1, qty2, qty3
+    });
+  };
 
   const onWidthUpdate = (update) => {
     setWidthUpdate(update);
@@ -209,15 +222,20 @@ function Dashboard() {
               </div>
               <div className='bottom-label' >
                 <div className='label-head' >
-                  <p className="label-text">LIST OF PARTS:</p><button className='genBtn' >
-                    <NavLink target='_blank' className='genLink' exact to='/pdf2' >Generate PDF</NavLink>
+                  <p className="label-text">LIST OF PARTS:</p>
+                  <button
+                    onClick={handleSubmit}
+                    className='genBtn' >
+                    <span >
+                      <AiOutlineFilePdf className='genLink' size={30} />
+                      {/* Generate PDF */}
+                    </span>
+                    {/* <NavLink target='_blank' onClick={() => props.history.push("/pdf2", { name: "sarim" })} className='genLink' exact to="/pdf2" >Generate PDF</NavLink> */}
                   </button>
                 </div>
                 <p className="part-label-text">{CurtainType}: {Label2Values} m</p>
                 <p className="part-label-text">PVC-RAIL-985: {Math.ceil(WidthUpdate / 985)} Pcs</p>
                 <p className="part-label-text">PVC-PLATE-{CurtainPlate}-SS: {LabelValues} Pcs</p>
-                <PdfValues.Provider value={'asd'} >
-                </PdfValues.Provider>
                 {/* <p className="label-text">Total Length: {Label2Values}m</p>
                   <p className="part-label-text">{LabelValues} Strips Needed</p> */}
               </div>
