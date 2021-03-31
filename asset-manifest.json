@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/PVC-Calculator/static/css/main.bb9e093f.chunk.css",
-    "main.js": "/PVC-Calculator/static/js/main.b02113cf.chunk.js",
-    "main.js.map": "/PVC-Calculator/static/js/main.b02113cf.chunk.js.map",
-    "runtime-main.js": "/PVC-Calculator/static/js/runtime-main.ddf4e265.js",
-    "runtime-main.js.map": "/PVC-Calculator/static/js/runtime-main.ddf4e265.js.map",
+    "main.css": "/PVC-Calculator/static/css/main.7ea25943.chunk.css",
+    "main.js": "/PVC-Calculator/static/js/main.bc8b36bd.chunk.js",
+    "main.js.map": "/PVC-Calculator/static/js/main.bc8b36bd.chunk.js.map",
+    "runtime-main.js": "/PVC-Calculator/static/js/runtime-main.65442e6a.js",
+    "runtime-main.js.map": "/PVC-Calculator/static/js/runtime-main.65442e6a.js.map",
     "static/css/2.fe708519.chunk.css": "/PVC-Calculator/static/css/2.fe708519.chunk.css",
-    "static/js/2.19c7c462.chunk.js": "/PVC-Calculator/static/js/2.19c7c462.chunk.js",
-    "static/js/2.19c7c462.chunk.js.map": "/PVC-Calculator/static/js/2.19c7c462.chunk.js.map",
-    "static/js/3.5ed4c4a4.chunk.js": "/PVC-Calculator/static/js/3.5ed4c4a4.chunk.js",
-    "static/js/3.5ed4c4a4.chunk.js.map": "/PVC-Calculator/static/js/3.5ed4c4a4.chunk.js.map",
+    "static/js/2.9675358d.chunk.js": "/PVC-Calculator/static/js/2.9675358d.chunk.js",
+    "static/js/2.9675358d.chunk.js.map": "/PVC-Calculator/static/js/2.9675358d.chunk.js.map",
+    "static/js/3.73dc52fb.chunk.js": "/PVC-Calculator/static/js/3.73dc52fb.chunk.js",
+    "static/js/3.73dc52fb.chunk.js.map": "/PVC-Calculator/static/js/3.73dc52fb.chunk.js.map",
     "index.html": "/PVC-Calculator/index.html",
     "static/css/2.fe708519.chunk.css.map": "/PVC-Calculator/static/css/2.fe708519.chunk.css.map",
-    "static/css/main.bb9e093f.chunk.css.map": "/PVC-Calculator/static/css/main.bb9e093f.chunk.css.map",
-    "static/js/2.19c7c462.chunk.js.LICENSE.txt": "/PVC-Calculator/static/js/2.19c7c462.chunk.js.LICENSE.txt",
+    "static/css/main.7ea25943.chunk.css.map": "/PVC-Calculator/static/css/main.7ea25943.chunk.css.map",
+    "static/js/2.9675358d.chunk.js.LICENSE.txt": "/PVC-Calculator/static/js/2.9675358d.chunk.js.LICENSE.txt",
     "static/media/index.css": "/PVC-Calculator/static/media/Futura-Round-Medium.c1a25aff.ttf",
     "static/media/PSCL1M2002.aebc494f.jpg": "/PVC-Calculator/static/media/PSCL1M2002.aebc494f.jpg",
     "static/media/PSCL1M2002AM.6e0ae24d.jpg": "/PVC-Calculator/static/media/PSCL1M2002AM.6e0ae24d.jpg",
@@ -23,14 +23,15 @@
     "static/media/PSCL1M3005P.516f3f1b.jpg": "/PVC-Calculator/static/media/PSCL1M3005P.516f3f1b.jpg",
     "static/media/PSCL1M4004.aebc494f.jpg": "/PVC-Calculator/static/media/PSCL1M4004.aebc494f.jpg",
     "static/media/PVC-ANTISTATIC-GREEN.d26521a0.jpg": "/PVC-Calculator/static/media/PVC-ANTISTATIC-GREEN.d26521a0.jpg",
-    "static/media/SPIMA.cfdb9b2c.webp": "/PVC-Calculator/static/media/SPIMA.cfdb9b2c.webp",
+    "static/media/SPIMA.230ad7e4.webp": "/PVC-Calculator/static/media/SPIMA.230ad7e4.webp",
+    "static/media/SPIMA_trans.c3d45c4a.webp": "/PVC-Calculator/static/media/SPIMA_trans.c3d45c4a.webp",
     "static/media/Dashboard.css": "/PVC-Calculator/static/media/backimage2.2e2f0ef0.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.ddf4e265.js",
+    "static/js/runtime-main.65442e6a.js",
     "static/css/2.fe708519.chunk.css",
-    "static/js/2.19c7c462.chunk.js",
-    "static/css/main.bb9e093f.chunk.css",
-    "static/js/main.b02113cf.chunk.js"
+    "static/js/2.9675358d.chunk.js",
+    "static/css/main.7ea25943.chunk.css",
+    "static/js/main.bc8b36bd.chunk.js"
   ]
 }
