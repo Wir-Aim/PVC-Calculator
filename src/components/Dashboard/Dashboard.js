@@ -19,7 +19,6 @@ import img8 from '../../images/pvc-images/PSCL1M4004.jpg';
 // import img13 from '../../images/Pvc-grades/pvc-translucent-colours.jpg';
 // import img14 from '../../images/Pvc-grades/pvc-welding.jpg';
 import headLogo from '../../images/logo/SPIMA.webp';
-import downImg from '../../images/download.JPG';
 import { NavLink } from 'react-router-dom'
 
 const overlapOptions = [{ value: "50", label: "50 mm" }, { value: "95", label: "95 mm" }, { value: "135", label: "135 mm" }];

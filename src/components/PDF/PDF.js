@@ -1,8 +1,6 @@
-import React, { Component, useContext, useState } from 'react'
+import React from 'react'
 import Banner from '../../images/logo/SPIMA_trans.webp'
 import Pdf from 'react-to-pdf'
-import { PdfValues } from '../Dashboard/Dashboard'
-import { PDFDownloadLink } from "@react-pdf/renderer";
 import "./PDF.css";
 
 const myRef = React.createRef();
@@ -16,7 +14,6 @@ function PDF(props) {
     { partNumber: values.part2, qty: values.qty2, },
     { partNumber: values.part3, qty: values.qty3, },
   ]
-  const pdfvalue = useContext(PdfValues)
 
   const renderTableHeader = () => {
     let header = Object.keys(students[0])
