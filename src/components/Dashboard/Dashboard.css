@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  /* overflow-y: auto; */
+  overflow-y: auto;
 }
 
 .imageBlur {
@@ -13,7 +13,7 @@
   width: 100%;
   background-color: rgba(214, 211, 211, 0.7);
   flex-direction: row;
-  /* overflow-y: auto; */
+  overflow-y: auto;
 }
 
 .main-body {
@@ -66,7 +66,9 @@
   border-radius: 5px;
 }
 .genLink {
-  color: black;
+  height: 35px;
+  color: #116b3e;
+  cursor: pointer;
 }
 
 .header1 {
@@ -252,17 +254,19 @@
 
 @media (max-width: 374px) {
   .slider-text,
+  .label-text,
   .dropdown-text {
     font-size: 16px;
   }
-  .label-text {
-    font-size: 14px;
-  }
+  /* .label-text {
+    font-size: 15px;
+  } */
   .part-label-text {
     font-size: 12px;
   }
   .genLink {
-    font-size: 4px;
+    height: 20px;
+    width: 20px;
   }
   .dropdown-text {
     height: 8px;
@@ -289,8 +293,8 @@
     width: 100px;
   }
   .pvc-img {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
   }
   .mainHeader {
     display: flex;
@@ -311,20 +315,19 @@
 
 @media (min-width: 375px) {
   .slider-text,
+  .label-text,
   .dropdown-text {
-    font-size: 18px;
-  }
-  .label-text {
     font-size: 16px;
   }
   .part-label-text {
-    font-size: 14px;
+    font-size: 15px;
   }
   .dropdown-text {
     height: 9px;
   }
   .genLink {
-    font-size: 6px;
+    height: 25px;
+    width: 25px;
   }
   .header1,
   .header2 {
@@ -354,11 +357,11 @@
   } */
 
   .slider {
-    width: 270px;
+    width: 260px;
   }
   .pvc-img {
-    width: 110px;
-    height: 110px;
+    width: 90px;
+    height: 90px;
   }
   .pvc-img-div {
     width: 250px;
@@ -370,16 +373,17 @@
   .slider-text,
   .dropdown-text,
   .label-text {
-    font-size: 18px;
+    font-size: 16px;
   }
   .part-label-text {
-    font-size: 18px;
+    font-size: 14px;
   }
   .dropdown-text {
     height: 11px;
   }
   .genLink {
-    font-size: 10px;
+    height: 28px;
+    width: 28px;
   }
   .header1,
   .header2 {
@@ -401,38 +405,102 @@
   }
 
   .dropdown-inner {
-    width: 400px;
+    width: 300px;
   }
   .dropdown-placeholder {
     font-size: 17px;
   }
   .slider {
-    width: 410px;
+    width: 310px;
   }
   .pvc-img {
-    width: 125px;
-    height: 125px;
+    width: 100px;
+    height: 100px;
   }
   .pvc-img-div {
-    width: 400px;
+    width: 300px;
+  }
+}
+@media (min-width: 1024px) {
+  .slider-text,
+  .dropdown-text,
+  .label-text {
+    font-size: 18px;
+  }
+  .part-label-text {
+    font-size: 17px;
+  }
+  .dropdown-text {
+    height: 11px;
+  }
+  .genLink {
+    height: 30px;
+    width: 30px;
+  }
+  .header1,
+  .header2 {
+    font-size: 23px;
+    height: 60px;
+  }
+  .headerText {
+    font-size: 14px;
+    display: block;
+  }
+  .header2Text {
+    font-size: 14px;
+    display: block;
+    margin-right: 10px;
+  }
+  .mainHeader {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dropdown-inner {
+    width: 350px;
+  }
+  .dropdown-placeholder {
+    font-size: 17px;
+  }
+  .slider {
+    width: 360px;
+  }
+  .pvc-img {
+    width: 105px;
+    height: 105px;
+  }
+  .pvc-img-div {
+    width: 350px;
   }
 }
 @media (min-width: 1336px) {
   .slider-text,
   .dropdown-text,
   .label-text {
-    font-size: 20px;
-  }
-  .part-label-text {
     font-size: 18px;
   }
+  .label-text {
+    font-size: 17px;
+  }
+  .part-label-text {
+    font-size: 16px;
+  }
   .genLink {
-    font-size: 12px;
+    height: 35px;
+    width: 35px;
   }
   .dropdown-text {
     height: 12px;
   }
-
+  .dropdown-inner {
+    width: 400px;
+  }
+  .slider {
+    width: 410px;
+  }
+  .pvc-img-div {
+    width: 400px;
+  }
   .header1,
   .header2 {
     font-size: 23px;
@@ -457,10 +525,10 @@
   .slider-text,
   .dropdown-text,
   .label-text {
-    font-size: 20px;
+    font-size: 18px;
   }
   .part-label-text {
-    font-size: 20px;
+    font-size: 17px;
   }
   .dropdown-text {
     height: 12px;
@@ -512,5 +580,9 @@
     font-size: 20px;
     display: block;
     margin-right: 50px;
+  }
+  .pvc-img {
+    width: 140px;
+    height: 140px;
   }
 }

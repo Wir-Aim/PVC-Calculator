@@ -3,8 +3,7 @@ import React, { createContext, useState } from 'react'
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "./Dashboard.css";
-import { AiOutlineFilePdf } from "react-icons/ai";
-import Pdf2 from "../PDF2/PDF2";
+import { HiDownload } from "react-icons/hi";
 import img1 from '../../images/pvc-images/PVC-ANTISTATIC-GREEN.jpg';
 import img2 from '../../images/pvc-images/PSCL1M3003P.jpg';
 import img3 from '../../images/pvc-images/PSCL1M3003.jpg';
@@ -20,18 +19,19 @@ import img8 from '../../images/pvc-images/PSCL1M4004.jpg';
 // import img13 from '../../images/Pvc-grades/pvc-translucent-colours.jpg';
 // import img14 from '../../images/Pvc-grades/pvc-welding.jpg';
 import headLogo from '../../images/logo/SPIMA.webp';
+import downImg from '../../images/download.JPG';
 import { NavLink } from 'react-router-dom'
 
 const overlapOptions = [{ value: "50", label: "50 mm" }, { value: "95", label: "95 mm" }, { value: "135", label: "135 mm" }];
 const stripOptions = [
   { value: 300.01, label: "PVC 300x3mm Anti Static Green" },
-  { value: 300.02, label: "PVC 300x3mm Clear polar" },
-  { value: 300.03, label: "PVC 300x3mm Clear standard" },
-  { value: 300.04, label: "PVC 300x5mm Clear ribbed polar" },
-  { value: 300., label: "PVC 300x5mm Clear ribbed" },
+  { value: 300.02, label: "PVC 300x3mm Clear Polar" },
+  { value: 300.03, label: "PVC 300x3mm Clear Standard" },
+  { value: 300.04, label: "PVC 300x5mm Clear Ribbed Polar" },
+  { value: 300., label: "PVC 300x5mm Clear Ribbed" },
   { value: 200.01, label: "PVC 200x3mm Anti Static Green" },
-  { value: 200, label: "PVC 200x2mm Clear standard" },
-  { value: 400, label: "PVC 400x4mm Clear standard" },
+  { value: 200, label: "PVC 200x2mm Clear Standard" },
+  { value: 400, label: "PVC 400x4mm Clear Standard" },
 ];
 
 const defaultOverlapOption = overlapOptions[0].value
@@ -77,13 +77,13 @@ function Dashboard(props) {
   // }
 
   const handleSubmit = () => {
-    let part1 = CurtainType
+    let part1 = `${CurtainType.slice(0, 3)} ${CurtainType.slice(12)}`
     let qty1 = `${Label2Values} m`
     let part2 = 'PVC-RAIL-985'
     let qty2 = `${Math.ceil(WidthUpdate / 985)} Pcs`
     let part3 = `PVC-PLATE-${CurtainPlate}-SS`
     let qty3 = `${LabelValues} Pcs`
-    props.history.push("/pdf2", {
+    props.history.push("/pdf", {
       WidthUpdate, HeightUpdate, part1, part2, part3, qty1, qty2, qty3
     });
   };
@@ -143,13 +143,13 @@ function Dashboard(props) {
     setCurtainPlate(Math.floor(value.value))
     setCurtainType(value.label)
     value.label === "PVC 300x3mm Anti Static Green" ? setPvcImage(img1)
-      : value.label === "PVC 300x3mm Clear polar" ? setPvcImage(img2)
-        : value.label === "PVC 300x3mm Clear standard" ? setPvcImage(img3)
-          : value.label === "PVC 300x5mm Clear ribbed polar" ? setPvcImage(img4)
-            : value.label === "PVC 300x5mm Clear ribbed" ? setPvcImage(img5)
+      : value.label === "PVC 300x3mm Clear Polar" ? setPvcImage(img2)
+        : value.label === "PVC 300x3mm Clear Standard" ? setPvcImage(img3)
+          : value.label === "PVC 300x5mm Clear Ribbed Polar" ? setPvcImage(img4)
+            : value.label === "PVC 300x5mm Clear Ribbed" ? setPvcImage(img5)
               : value.label === "PVC 200x3mm Anti Static Green" ? setPvcImage(img6)
-                : value.label === "PVC 200x2mm Clear standard" ? setPvcImage(img7)
-                  : value.label === "PVC 400x4mm Clear standard" ? setPvcImage(img8)
+                : value.label === "PVC 200x2mm Clear Standard" ? setPvcImage(img7)
+                  : value.label === "PVC 400x4mm Clear Standard" ? setPvcImage(img8)
                     : setPvcImage(img1)
   };
 
@@ -223,17 +223,18 @@ function Dashboard(props) {
               <div className='bottom-label' >
                 <div className='label-head' >
                   <p className="label-text">LIST OF PARTS:</p>
-                  <button
+                  {/* <button
                     onClick={handleSubmit}
-                    className='genBtn' >
-                    <span >
-                      <AiOutlineFilePdf className='genLink' size={30} />
-                      {/* Generate PDF */}
-                    </span>
-                    {/* <NavLink target='_blank' onClick={() => props.history.push("/pdf2", { name: "sarim" })} className='genLink' exact to="/pdf2" >Generate PDF</NavLink> */}
-                  </button>
+                    className='genBtn' > */}
+                  <span onClick={handleSubmit} >
+                    {/* <img className='downImg' src={downImg} alt='Download Image' /> */}
+                    <HiDownload className='genLink' size={50} />
+                    {/* Generate PDF */}
+                  </span>
+                  {/* <NavLink target='_blank' onClick={() => props.history.push("/pdf2", { name: "sarim" })} className='genLink' exact to="/pdf2" >Generate PDF</NavLink> */}
+                  {/* </button> */}
                 </div>
-                <p className="part-label-text">{CurtainType}: {Label2Values} m</p>
+                <p className="part-label-text">{CurtainType.slice(0, 3)} {CurtainType.slice(12)}: {Label2Values} m</p>
                 <p className="part-label-text">PVC-RAIL-985: {Math.ceil(WidthUpdate / 985)} Pcs</p>
                 <p className="part-label-text">PVC-PLATE-{CurtainPlate}-SS: {LabelValues} Pcs</p>
                 {/* <p className="label-text">Total Length: {Label2Values}m</p>

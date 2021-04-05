@@ -1,72 +1,70 @@
-import React, { Component } from 'react'
-import Banner from '../../images/logo/SPIMA_trans.png'
+import React, { Component, useContext, useState } from 'react'
+import Banner from '../../images/logo/SPIMA_trans.webp'
 import Pdf from 'react-to-pdf'
+import { PdfValues } from '../Dashboard/Dashboard'
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import "./PDF.css";
 
 const myRef = React.createRef();
 
-class PDF extends Component {
-    constructor(props) {
-        super(props) //since we are extending class Table so we have to use super in order to override Component class constructor
-        this.myInput = React.createRef()
-        this.state = { //state is by default an object
-            students: [
-                { partNumber: 'PVC', qty: 21, },
-                { partNumber: 'PVC', qty: 19, },
-                { partNumber: 'PVC', qty: 16, },
-                { partNumber: 'PVC', qty: 25, }
-            ]
-        }
-    }
+function PDF(props) {
 
-    componentDidMount() {
-        console.log('Width', myRef.current.parentElement.clientWidth)
-    }
+  const values = props.location.state;
 
-    renderTableHeader() {
-        let header = Object.keys(this.state.students[0])
-        return header.map((key, index) => {
-            return <th key={index}>{key.toUpperCase()}</th>
-        })
-    }
+  const students = [
+    { partNumber: values.part1, qty: values.qty1, },
+    { partNumber: values.part2, qty: values.qty2, },
+    { partNumber: values.part3, qty: values.qty3, },
+  ]
+  const pdfvalue = useContext(PdfValues)
 
-    renderTableData() {
-        return this.state.students.map((student, index) => {
-            const { id, partNumber, qty } = student //destructuring
-            return (
-                <tr key={id}>
-                    <td className='tableData'>{partNumber}</td>
-                    <td className='tableData'>{qty}</td>
+  const renderTableHeader = () => {
+    let header = Object.keys(students[0])
+    return header.map((key, index) => {
+      return <th key={index}>{key.toUpperCase()}</th>
+    })
+  }
+
+  const renderTableData = () => {
+    return students.map((student, index) => {
+      const { id, partNumber, qty } = student //destructuring
+      return (
+        <tr key={id}>
+          <td className='tableData'>{partNumber}</td>
+          <td className='tableData'>{qty}</td>
+        </tr>
+      )
+    })
+  }
+
+  return (
+    <div className='pdfMain'>
+      <div className='refDiv' ref={myRef}>
+        <div className='banner'>
+          <img className='headLogo' src={Banner} alt='banner' ></img>
+          <p className='bannerText' >Your partner in Intralogistics solutions</p>
+        </div>
+        <div className='body' >
+          <h1 id='title'>List of Parts for Opening {values.WidthUpdate[0]} x {values.HeightUpdate[0]}</h1>
+          <div className='pdfInner'   >
+            <table id='students'>
+              <tbody>
+                <tr>
+                  {renderTableHeader()}
                 </tr>
-            )
-        })
-    }
+                {renderTableData()}
+              </tbody>
+            </table>
+          </div>
+          <h4 className='bottomText'>Please e-mail this PDF to info@spima.com.cy for a quotation.</h4>
+        </div>
+      </div>
+      <Pdf targetRef={myRef} filename={`${values.WidthUpdate[0]}x${values.HeightUpdate[0]}mm.pdf`} scale={1.2}  >
+        {({ toPdf }) => <button className='btn' onClick={toPdf}>Download Pick List</button>}
+      </Pdf>
+    </div>
+  );
 
-    render() { //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
-        return (
-            <div className='pdfMain'>
-                <div className='refDiv' ref={myRef}>
-                    <div className='banner'>
-                        <img src={Banner} alt='banner' ></img>
-                        <p className='bannerText' >Your partner in Intralogistics solutions</p>
-                    </div>
-                    <h1 id='title'>List of Parts for Opening 500 x 500</h1>
-                    <div className='pdfInner'   >
-                        <table id='students'>
-                            <tbody>
-                                <tr>{this.renderTableHeader()}</tr>
-                                {this.renderTableData()}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <Pdf targetRef={myRef} filename="code-example.pdf" scale={0.8} >
-                    {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
-                </Pdf>
-            </div>
-        )
-    }
 }
 
 export default PDF;
-
