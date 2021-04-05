@@ -1,9 +1,13 @@
 import SliderComponent from "../Slider";
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "./Dashboard.css";
 import { HiDownload } from "react-icons/hi";
+import NewWindow from 'react-new-window'
+import headLogo from '../../images/logo/SPIMA.webp';
+import { NavLink, useHistory } from 'react-router-dom'
+
 import img1 from '../../images/pvc-images/PVC-ANTISTATIC-GREEN.jpg';
 import img2 from '../../images/pvc-images/PSCL1M3003P.jpg';
 import img3 from '../../images/pvc-images/PSCL1M3003.jpg';
@@ -12,14 +16,8 @@ import img5 from '../../images/pvc-images/PSCL1M3005.jpg';
 import img6 from '../../images/pvc-images/PSCL1M2002AM.jpg';
 import img7 from '../../images/pvc-images/PSCL1M2002.jpg';
 import img8 from '../../images/pvc-images/PSCL1M4004.jpg';
-// import img9 from '../../images/Pvc-grades/pvc-opaque-colours.jpg'; 
-// import img10 from '../../images/Pvc-grades/pvc-perforated.jpg';
-// import img11 from '../../images/Pvc-grades/pvc-polar.jpg';
-// import img12 from '../../images/Pvc-grades/pvc-standard-clear.jpg';
-// import img13 from '../../images/Pvc-grades/pvc-translucent-colours.jpg';
-// import img14 from '../../images/Pvc-grades/pvc-welding.jpg';
-import headLogo from '../../images/logo/SPIMA.webp';
-import { NavLink } from 'react-router-dom'
+
+
 
 const overlapOptions = [{ value: "50", label: "50 mm" }, { value: "95", label: "95 mm" }, { value: "135", label: "135 mm" }];
 const stripOptions = [
@@ -38,7 +36,10 @@ const defaultStripOption = stripOptions[0].label
 
 const PdfValues = createContext();
 
+
 function Dashboard(props) {
+  const history = useHistory();
+  const [updateLocal, setupdateLocal] = useState(true);
   const [CurtainPlate, setCurtainPlate] = useState('300')
   const [CurtainType, setCurtainType] = useState('PVC 300x3mm Anti Static Green')
   const [PvcImg, setPvcImage] = useState(img1);
@@ -55,6 +56,20 @@ function Dashboard(props) {
   const [Label2Values, setLabel2Values] = useState(
     Math.ceil((HeightValues * LabelValues) / 1000)
   );
+
+  useEffect(() => {
+    if (updateLocal) {
+      const widthget = localStorage.getItem('width', WidthValues)
+      const heightget = localStorage.getItem('height', HeightValues)
+      // const overlapget = localStorage.setItem('overlap', OverlapValues)
+      // const stripget = localStorage.setItem('type', StripValues)
+      setWidthValues([widthget])
+      setHeightValues([heightget])
+      // setHeightValues(overlapget)
+      // setHeightValues(stripget)
+    }
+    console.log('asd', updateLocal)
+  }, []);
 
   // const onGradeChange = (value) => {
   //   console.log('kiya Mila', value.value)
@@ -76,18 +91,23 @@ function Dashboard(props) {
   // }
 
   const handleSubmit = () => {
+    localStorage.setItem('overlap', OverlapValues)
+    localStorage.setItem('type', StripValues)
+    localStorage.setItem('height', HeightValues)
+    localStorage.setItem('width', WidthValues)
     let part1 = `${CurtainType.slice(0, 3)} ${CurtainType.slice(12)}`
     let qty1 = `${Label2Values} m`
     let part2 = 'PVC-RAIL-985'
     let qty2 = `${Math.ceil(WidthUpdate / 985)} Pcs`
     let part3 = `PVC-PLATE-${CurtainPlate}-SS`
     let qty3 = `${LabelValues} Pcs`
-    props.history.push("/pdf", {
+    history.push("/pdf", {
       WidthUpdate, HeightUpdate, part1, part2, part3, qty1, qty2, qty3
     });
   };
 
   const onWidthUpdate = (update) => {
+    setupdateLocal(false)
     setWidthUpdate(update);
     setLabelValues(Math.ceil(update / (StripValues - OverlapValues)));
     setLabel2Values(
@@ -99,6 +119,7 @@ function Dashboard(props) {
 
 
   const onHeightUpdate = (update) => {
+    setupdateLocal(false)
     setHeightUpdate(update);
     setLabel2Values(Math.ceil((update * LabelValues) / 1000));
   };
@@ -119,6 +140,7 @@ function Dashboard(props) {
   };
 
   const onOverlapChange = (value) => {
+    console.log('asdas',value)
     setOverlapValues(value.value);
     setLabelValues(Math.ceil(WidthValues / (StripValues - value.value)));
     setLabel2Values(
