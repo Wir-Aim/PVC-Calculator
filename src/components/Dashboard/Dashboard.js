@@ -39,6 +39,7 @@ const PdfValues = createContext();
 
 function Dashboard(props) {
   const history = useHistory();
+  const [getOverlap, setgetOverlap] = useState({ value: '50', label: '50 mm' });
   const [updateLocal, setupdateLocal] = useState(true);
   const [CurtainPlate, setCurtainPlate] = useState('300')
   const [CurtainType, setCurtainType] = useState('PVC 300x3mm Anti Static Green')
@@ -61,11 +62,13 @@ function Dashboard(props) {
     if (updateLocal) {
       const widthget = localStorage.getItem('width', WidthValues)
       const heightget = localStorage.getItem('height', HeightValues)
-      // const overlapget = localStorage.setItem('overlap', OverlapValues)
+      const overlapget = localStorage.getItem('overlap', getOverlap)
       // const stripget = localStorage.setItem('type', StripValues)
-      setWidthValues([widthget])
-      setHeightValues([heightget])
-      // setHeightValues(overlapget)
+      onWidthUpdate([widthget])
+      onWidthChange([widthget])
+      onHeightUpdate([heightget])
+      onHeightChange([heightget])
+      onOverlapChange(overlapget)
       // setHeightValues(stripget)
     }
     console.log('asd', updateLocal)
@@ -91,8 +94,8 @@ function Dashboard(props) {
   // }
 
   const handleSubmit = () => {
-    localStorage.setItem('overlap', OverlapValues)
-    localStorage.setItem('type', StripValues)
+    localStorage.setItem('overlap', getOverlap)
+    // localStorage.setItem('type', StripValues)
     localStorage.setItem('height', HeightValues)
     localStorage.setItem('width', WidthValues)
     let part1 = `${CurtainType.slice(0, 3)} ${CurtainType.slice(12)}`
@@ -140,7 +143,8 @@ function Dashboard(props) {
   };
 
   const onOverlapChange = (value) => {
-    console.log('asdas',value)
+    console.log('asdas', value);
+    setgetOverlap(value);
     setOverlapValues(value.value);
     setLabelValues(Math.ceil(WidthValues / (StripValues - value.value)));
     setLabel2Values(
