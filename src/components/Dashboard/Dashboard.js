@@ -4,7 +4,6 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "./Dashboard.css";
 import { HiDownload } from "react-icons/hi";
-import NewWindow from 'react-new-window'
 import headLogo from '../../images/logo/SPIMA.webp';
 import { NavLink, useHistory } from 'react-router-dom'
 
@@ -17,29 +16,33 @@ import img6 from '../../images/pvc-images/PSCL1M2002AM.jpg';
 import img7 from '../../images/pvc-images/PSCL1M2002.jpg';
 import img8 from '../../images/pvc-images/PSCL1M4004.jpg';
 
+let widthget;
+let heightget;
 
-
-const overlapOptions = [{ value: "50", label: "50 mm" }, { value: "95", label: "95 mm" }, { value: "135", label: "135 mm" }];
+const overlapOptions = [
+  { value: "50", label: "50 mm" },
+  { value: "95", label: "95 mm" },
+  { value: "135", label: "135 mm" }
+];
 const stripOptions = [
-  { value: 300.01, label: "PVC 300x3mm Anti Static Green" },
-  { value: 300.02, label: "PVC 300x3mm Clear Polar" },
-  { value: 300.03, label: "PVC 300x3mm Clear Standard" },
-  { value: 300.04, label: "PVC 300x5mm Clear Ribbed Polar" },
-  { value: 300., label: "PVC 300x5mm Clear Ribbed" },
-  { value: 200.01, label: "PVC 200x3mm Anti Static Green" },
-  { value: 200, label: "PVC 200x2mm Clear Standard" },
-  { value: 400, label: "PVC 400x4mm Clear Standard" },
+  { value: '300.01', label: "PVC 300x3mm Anti Static Green" },
+  { value: '300.02', label: "PVC 300x3mm Clear Polar" },
+  { value: '300.03', label: "PVC 300x3mm Clear Standard" },
+  { value: '300.04', label: "PVC 300x5mm Clear Ribbed Polar" },
+  { value: '300.', label: "PVC 300x5mm Clear Ribbed" },
+  { value: '200.01', label: "PVC 200x3mm Anti Static Green" },
+  { value: '200', label: "PVC 200x2mm Clear Standard" },
+  { value: '400', label: "PVC 400x4mm Clear Standard" },
 ];
 
-const defaultOverlapOption = overlapOptions[0].value
-const defaultStripOption = stripOptions[0].label
+// const defaultOverlapOption = overlapOptions[0].label
+// const defaultStripOption = stripOptions[0].label
 
 const PdfValues = createContext();
 
 
 function Dashboard(props) {
   const history = useHistory();
-  const [getOverlap, setgetOverlap] = useState({ value: '50', label: '50 mm' });
   const [updateLocal, setupdateLocal] = useState(true);
   const [CurtainPlate, setCurtainPlate] = useState('300')
   const [CurtainType, setCurtainType] = useState('PVC 300x3mm Anti Static Green')
@@ -49,7 +52,7 @@ function Dashboard(props) {
   const [WidthValues, setWidthValues] = useState([500]);
   const [HeightValues, setHeightValues] = useState([500]);
   const [OverlapValues, setOverlapValues] = useState(overlapOptions[0].value);
-  const [StripValues, setStripValues] = useState(stripOptions[0].value);
+  const [StripValues, setStripValues] = useState(400);
   const [LabelValues, setLabelValues] = useState(
     Math.ceil(WidthValues / (StripValues - OverlapValues))
   );
@@ -59,45 +62,29 @@ function Dashboard(props) {
   );
 
   useEffect(() => {
-    if (updateLocal) {
-      const widthget = localStorage.getItem('width', WidthValues)
-      const heightget = localStorage.getItem('height', HeightValues)
-      const overlapget = localStorage.getItem('overlap', getOverlap)
-      // const stripget = localStorage.setItem('type', StripValues)
-      onWidthUpdate([widthget])
-      onWidthChange([widthget])
-      onHeightUpdate([heightget])
-      onHeightChange([heightget])
-      onOverlapChange(overlapget)
-      // setHeightValues(stripget)
-    }
-    console.log('asd', updateLocal)
+    window.addEventListener("beforeunload", (ev) => {
+      ev.preventDefault();
+      return localStorage.clear()
+    });
+    // if (updateLocal) {
+      widthget = localStorage.getItem('width', WidthValues)
+      heightget = localStorage.getItem('height', HeightValues)
+      const overlapget = localStorage.getItem('overlap', OverlapValues)
+      const labelget = localStorage.getItem('label', Label2Values)
+      const stripget = localStorage.getItem('strip', StripValues)
+      changeWidthAndHeight([widthget], [heightget], labelget)
+      onGetOverlap(overlapget)
+      onGetStrip(stripget)
+    // }
   }, []);
 
-  // const onGradeChange = (value) => {
-  //   console.log('kiya Mila', value.value)
-  //   value.value === 1 ? setPvcImage(img1)
-  //     : value.value === 2 ? setPvcImage(img2)
-  //       : value.value === 3 ? setPvcImage(img3)
-  //         : value.value === 4 ? setPvcImage(img4)
-  //           : value.value === 5 ? setPvcImage(img5)
-  //             : value.value === 6 ? setPvcImage(img6)
-  //               : value.value === 7 ? setPvcImage(img7)
-  //                 : value.value === 8 ? setPvcImage(img8)
-  //                   : value.value === 9 ? setPvcImage(img9)
-  //                     : value.value === 10 ? setPvcImage(img10)
-  //                       : value.value === 11 ? setPvcImage(img11)
-  //                         : value.value === 12 ? setPvcImage(img12)
-  //                           : value.value === 13 ? setPvcImage(img13)
-  //                             : value.value === 14 ? setPvcImage(img14)
-  //                   : setPvcImage(img1)
-  // }
 
   const handleSubmit = () => {
-    localStorage.setItem('overlap', getOverlap)
-    // localStorage.setItem('type', StripValues)
+    localStorage.setItem('overlap', OverlapValues)
+    localStorage.setItem('strip', StripValues)
     localStorage.setItem('height', HeightValues)
     localStorage.setItem('width', WidthValues)
+    localStorage.setItem('label', Label2Values)
     let part1 = `${CurtainType.slice(0, 3)} ${CurtainType.slice(12)}`
     let qty1 = `${Label2Values} m`
     let part2 = 'PVC-RAIL-985'
@@ -109,8 +96,8 @@ function Dashboard(props) {
     });
   };
 
+
   const onWidthUpdate = (update) => {
-    setupdateLocal(false)
     setWidthUpdate(update);
     setLabelValues(Math.ceil(update / (StripValues - OverlapValues)));
     setLabel2Values(
@@ -122,7 +109,6 @@ function Dashboard(props) {
 
 
   const onHeightUpdate = (update) => {
-    setupdateLocal(false)
     setHeightUpdate(update);
     setLabel2Values(Math.ceil((update * LabelValues) / 1000));
   };
@@ -142,9 +128,46 @@ function Dashboard(props) {
     setLabel2Values(Math.ceil((value * LabelValues) / 1000));
   };
 
+  const changeWidthAndHeight = (value1, value2, value3) => {
+    if (value1[0] && value2[0] && value3 !== null) {
+      setWidthUpdate(value1);
+      setWidthValues(value1);
+      setHeightUpdate(value2);
+      setHeightValues(value2);
+      setTimeout(() => {
+        setLabel2Values(Math.ceil(value3));
+      }, 100);
+    }
+  }
+
+
+  const onGetOverlap = (value) => {
+    value == 50 ? changeOverlap(overlapOptions[0])
+      : value == 95 ? changeOverlap(overlapOptions[1])
+        : value == 135 ? changeOverlap(overlapOptions[2])
+          : changeOverlap(overlapOptions[0])
+  }
+
+  const onGetStrip = (value) => {
+    value == 300.01 ? changeStrip(stripOptions[0])
+      : value == 300.02 ? changeStrip(stripOptions[1])
+        : value == 300.03 ? changeStrip(stripOptions[2])
+          : value == 300.04 ? changeStrip(stripOptions[3])
+            : value == 300. ? changeStrip(stripOptions[4])
+              : value == 200.01 ? changeStrip(stripOptions[5])
+                : value == 200 ? changeStrip(stripOptions[6])
+                  : value == 400 ? changeStrip(stripOptions[7])
+                    : changeStrip(stripOptions[0])
+  }
+
+  const changeOverlap = (value) => {
+    onOverlapChange(value)
+  }
+  const changeStrip = (value) => {
+    onStripWidthChange(value)
+  }
+
   const onOverlapChange = (value) => {
-    console.log('asdas', value);
-    setgetOverlap(value);
     setOverlapValues(value.value);
     setLabelValues(Math.ceil(WidthValues / (StripValues - value.value)));
     setLabel2Values(
@@ -224,7 +247,7 @@ function Dashboard(props) {
                   arrowClassName="dropdown-arrow"
                   placeholderClassName="dropdown-placeholder"
                   menuClassName="dropdown-list"
-                  value={defaultOverlapOption}
+                  value={OverlapValues}
                   placeholder="Select an option"
                 />
               </div>
@@ -238,7 +261,7 @@ function Dashboard(props) {
                   arrowClassName="dropdown-arrow"
                   placeholderClassName="dropdown-placeholder"
                   menuClassName="dropdown-list"
-                  value={defaultStripOption}
+                  value={StripValues}
                   placeholder="Select an option"
                 />
               </div>
