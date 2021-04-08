@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/PVC-Calculator/static/css/main.0f24878b.chunk.css",
-    "main.js": "/PVC-Calculator/static/js/main.b8e02954.chunk.js",
-    "main.js.map": "/PVC-Calculator/static/js/main.b8e02954.chunk.js.map",
+    "main.js": "/PVC-Calculator/static/js/main.2fcb1b5a.chunk.js",
+    "main.js.map": "/PVC-Calculator/static/js/main.2fcb1b5a.chunk.js.map",
     "runtime-main.js": "/PVC-Calculator/static/js/runtime-main.84949455.js",
     "runtime-main.js.map": "/PVC-Calculator/static/js/runtime-main.84949455.js.map",
     "static/css/2.fe708519.chunk.css": "/PVC-Calculator/static/css/2.fe708519.chunk.css",
@@ -32,6 +32,6 @@
     "static/css/2.fe708519.chunk.css",
     "static/js/2.51165ad6.chunk.js",
     "static/css/main.0f24878b.chunk.css",
-    "static/js/main.b8e02954.chunk.js"
+    "static/js/main.2fcb1b5a.chunk.js"
   ]
 }
