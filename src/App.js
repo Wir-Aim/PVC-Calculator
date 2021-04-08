@@ -2,7 +2,7 @@ import './App.css';
 import Dashboard from './components/Dashboard/Dashboard'
 import DockLeveller from "./components/DockLeveller/DockLeveller";
 import PDF from "./components/PDF/PDF";
-// import PDF2 from "./components/PDF2/index";
+// import PDF2 from "./components/PDF2/PDF2";
 import { Switch, Route } from "react-router-dom";
 
 function App() {

@@ -1,20 +1,20 @@
 import SliderComponent from "../Slider";
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState, useEffect } from "react";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import "./Dashboard.css";
 import { HiDownload } from "react-icons/hi";
-import headLogo from '../../images/logo/SPIMA.webp';
-import { NavLink, useHistory } from 'react-router-dom'
+import headLogo from "../../images/logo/SPIMA.webp";
+import { NavLink, useHistory } from "react-router-dom";
 
-import img1 from '../../images/pvc-images/PVC-ANTISTATIC-GREEN.jpg';
-import img2 from '../../images/pvc-images/PSCL1M3003P.jpg';
-import img3 from '../../images/pvc-images/PSCL1M3003.jpg';
-import img4 from '../../images/pvc-images/PSCL1M3005P.jpg';
-import img5 from '../../images/pvc-images/PSCL1M3005.jpg';
-import img6 from '../../images/pvc-images/PSCL1M2002AM.jpg';
-import img7 from '../../images/pvc-images/PSCL1M2002.jpg';
-import img8 from '../../images/pvc-images/PSCL1M4004.jpg';
+import img1 from "../../images/pvc-images/PVC-ANTISTATIC-GREEN.jpg";
+import img2 from "../../images/pvc-images/PSCL1M3003P.jpg";
+import img3 from "../../images/pvc-images/PSCL1M3003.jpg";
+import img4 from "../../images/pvc-images/PSCL1M3005P.jpg";
+import img5 from "../../images/pvc-images/PSCL1M3005.jpg";
+import img6 from "../../images/pvc-images/PSCL1M2002AM.jpg";
+import img7 from "../../images/pvc-images/PSCL1M2002.jpg";
+import img8 from "../../images/pvc-images/PSCL1M4004.jpg";
 
 let widthget;
 let heightget;
@@ -22,17 +22,17 @@ let heightget;
 const overlapOptions = [
   { value: "50", label: "50 mm" },
   { value: "95", label: "95 mm" },
-  { value: "135", label: "135 mm" }
+  { value: "135", label: "135 mm" },
 ];
 const stripOptions = [
-  { value: '300.01', label: "PVC 300x3mm Anti Static Green" },
-  { value: '300.02', label: "PVC 300x3mm Clear Polar" },
-  { value: '300.03', label: "PVC 300x3mm Clear Standard" },
-  { value: '300.04', label: "PVC 300x5mm Clear Ribbed Polar" },
-  { value: '300.', label: "PVC 300x5mm Clear Ribbed" },
-  { value: '200.01', label: "PVC 200x3mm Anti Static Green" },
-  { value: '200', label: "PVC 200x2mm Clear Standard" },
-  { value: '400', label: "PVC 400x4mm Clear Standard" },
+  { value: "300.01", label: "PVC 300x3mm Anti Static Green" },
+  { value: "300.02", label: "PVC 300x3mm Clear Polar" },
+  { value: "300.03", label: "PVC 300x3mm Clear Standard" },
+  { value: "300.04", label: "PVC 300x5mm Clear Ribbed Polar" },
+  { value: "300.", label: "PVC 300x5mm Clear Ribbed" },
+  { value: "200.01", label: "PVC 200x3mm Anti Static Green" },
+  { value: "200", label: "PVC 200x2mm Clear Standard" },
+  { value: "400", label: "PVC 400x4mm Clear Standard" },
 ];
 
 // const defaultOverlapOption = overlapOptions[0].label
@@ -40,12 +40,12 @@ const stripOptions = [
 
 const PdfValues = createContext();
 
-
 function Dashboard(props) {
   const history = useHistory();
-  const [updateLocal, setupdateLocal] = useState(true);
-  const [CurtainPlate, setCurtainPlate] = useState('300')
-  const [CurtainType, setCurtainType] = useState('PVC 300x3mm Anti Static Green')
+  const [CurtainPlate, setCurtainPlate] = useState("300");
+  const [CurtainType, setCurtainType] = useState(
+    "PVC 300x3mm Anti Static Green"
+  );
   const [PvcImg, setPvcImage] = useState(img1);
   const [WidthUpdate, setWidthUpdate] = useState([500]);
   const [HeightUpdate, setHeightUpdate] = useState([500]);
@@ -64,49 +64,54 @@ function Dashboard(props) {
   useEffect(() => {
     window.addEventListener("beforeunload", (ev) => {
       ev.preventDefault();
-      return localStorage.clear()
+      return localStorage.clear();
     });
     // if (updateLocal) {
-      widthget = localStorage.getItem('width', WidthValues)
-      heightget = localStorage.getItem('height', HeightValues)
-      const overlapget = localStorage.getItem('overlap', OverlapValues)
-      const labelget = localStorage.getItem('label', Label2Values)
-      const stripget = localStorage.getItem('strip', StripValues)
-      changeWidthAndHeight([widthget], [heightget], labelget)
-      onGetOverlap(overlapget)
-      onGetStrip(stripget)
+    widthget = localStorage.getItem("width", WidthValues);
+    heightget = localStorage.getItem("height", HeightValues);
+    const overlapget = localStorage.getItem("overlap", OverlapValues);
+    const labelget = localStorage.getItem("label", Label2Values);
+    const stripget = localStorage.getItem("strip", StripValues);
+    changeWidthAndHeight([widthget], [heightget], labelget);
+    onGetOverlap(overlapget);
+    onGetStrip(stripget);
     // }
   }, []);
 
-
   const handleSubmit = () => {
-    localStorage.setItem('overlap', OverlapValues)
-    localStorage.setItem('strip', StripValues)
-    localStorage.setItem('height', HeightValues)
-    localStorage.setItem('width', WidthValues)
-    localStorage.setItem('label', Label2Values)
-    let part1 = `${CurtainType.slice(0, 3)} ${CurtainType.slice(12)}`
-    let qty1 = `${Label2Values} m`
-    let part2 = 'PVC-RAIL-985'
-    let qty2 = `${Math.ceil(WidthUpdate / 985)} Pcs`
-    let part3 = `PVC-PLATE-${CurtainPlate}-SS`
-    let qty3 = `${LabelValues} Pcs`
+    localStorage.setItem("overlap", OverlapValues);
+    localStorage.setItem("strip", StripValues);
+    localStorage.setItem("height", HeightValues);
+    localStorage.setItem("width", WidthValues);
+    localStorage.setItem("label", Label2Values);
+    let part1 = `${CurtainType.slice(0, 3)} ${CurtainType.slice(12)}`;
+    let qty1 = `${Label2Values} m`;
+    let part2 = "PVC-RAIL-985";
+    let qty2 = `${Math.ceil(WidthUpdate / 985)} Pcs`;
+    let part3 = `PVC-PLATE-${CurtainPlate}-SS`;
+    let qty3 = `${LabelValues} Pcs`;
     history.push("/pdf", {
-      WidthUpdate, HeightUpdate, part1, part2, part3, qty1, qty2, qty3
+      WidthUpdate,
+      HeightUpdate,
+      part1,
+      part2,
+      part3,
+      qty1,
+      qty2,
+      qty3,
     });
   };
-
 
   const onWidthUpdate = (update) => {
     setWidthUpdate(update);
     setLabelValues(Math.ceil(update / (StripValues - OverlapValues)));
     setLabel2Values(
       Math.ceil(
-        (HeightValues * Math.ceil(update / (StripValues - OverlapValues))) / 1000
+        (HeightValues * Math.ceil(update / (StripValues - OverlapValues))) /
+          1000
       )
     );
   };
-
 
   const onHeightUpdate = (update) => {
     setHeightUpdate(update);
@@ -138,34 +143,44 @@ function Dashboard(props) {
         setLabel2Values(Math.ceil(value3));
       }, 100);
     }
-  }
-
+  };
 
   const onGetOverlap = (value) => {
-    value == 50 ? changeOverlap(overlapOptions[0])
-      : value == 95 ? changeOverlap(overlapOptions[1])
-        : value == 135 ? changeOverlap(overlapOptions[2])
-          : changeOverlap(overlapOptions[0])
-  }
+    value === "50"
+      ? changeOverlap(overlapOptions[0])
+      : value === "95"
+      ? changeOverlap(overlapOptions[1])
+      : value === "135"
+      ? changeOverlap(overlapOptions[2])
+      : changeOverlap(overlapOptions[0]);
+  };
 
   const onGetStrip = (value) => {
-    value == 300.01 ? changeStrip(stripOptions[0])
-      : value == 300.02 ? changeStrip(stripOptions[1])
-        : value == 300.03 ? changeStrip(stripOptions[2])
-          : value == 300.04 ? changeStrip(stripOptions[3])
-            : value == 300. ? changeStrip(stripOptions[4])
-              : value == 200.01 ? changeStrip(stripOptions[5])
-                : value == 200 ? changeStrip(stripOptions[6])
-                  : value == 400 ? changeStrip(stripOptions[7])
-                    : changeStrip(stripOptions[0])
-  }
+    value === "300.01"
+      ? changeStrip(stripOptions[0])
+      : value === "300.02"
+      ? changeStrip(stripOptions[1])
+      : value === "300.03"
+      ? changeStrip(stripOptions[2])
+      : value === "300.04"
+      ? changeStrip(stripOptions[3])
+      : value === "300."
+      ? changeStrip(stripOptions[4])
+      : value === "200.01"
+      ? changeStrip(stripOptions[5])
+      : value === "200"
+      ? changeStrip(stripOptions[6])
+      : value === "400"
+      ? changeStrip(stripOptions[7])
+      : changeStrip(stripOptions[0]);
+  };
 
   const changeOverlap = (value) => {
-    onOverlapChange(value)
-  }
+    onOverlapChange(value);
+  };
   const changeStrip = (value) => {
-    onStripWidthChange(value)
-  }
+    onStripWidthChange(value);
+  };
 
   const onOverlapChange = (value) => {
     setOverlapValues(value.value);
@@ -173,7 +188,7 @@ function Dashboard(props) {
     setLabel2Values(
       Math.ceil(
         (HeightValues * Math.ceil(WidthValues / (StripValues - value.value))) /
-        1000
+          1000
       )
     );
   };
@@ -185,40 +200,61 @@ function Dashboard(props) {
       Math.ceil(
         (HeightValues *
           Math.ceil(WidthValues / (value.value - OverlapValues))) /
-        1000
+          1000
       )
     );
-    setCurtainPlate(Math.floor(value.value))
-    setCurtainType(value.label)
-    value.label === "PVC 300x3mm Anti Static Green" ? setPvcImage(img1)
-      : value.label === "PVC 300x3mm Clear Polar" ? setPvcImage(img2)
-        : value.label === "PVC 300x3mm Clear Standard" ? setPvcImage(img3)
-          : value.label === "PVC 300x5mm Clear Ribbed Polar" ? setPvcImage(img4)
-            : value.label === "PVC 300x5mm Clear Ribbed" ? setPvcImage(img5)
-              : value.label === "PVC 200x3mm Anti Static Green" ? setPvcImage(img6)
-                : value.label === "PVC 200x2mm Clear Standard" ? setPvcImage(img7)
-                  : value.label === "PVC 400x4mm Clear Standard" ? setPvcImage(img8)
-                    : setPvcImage(img1)
+    setCurtainPlate(Math.floor(value.value));
+    setCurtainType(value.label);
+    value.label === "PVC 300x3mm Anti Static Green"
+      ? setPvcImage(img1)
+      : value.label === "PVC 300x3mm Clear Polar"
+      ? setPvcImage(img2)
+      : value.label === "PVC 300x3mm Clear Standard"
+      ? setPvcImage(img3)
+      : value.label === "PVC 300x5mm Clear Ribbed Polar"
+      ? setPvcImage(img4)
+      : value.label === "PVC 300x5mm Clear Ribbed"
+      ? setPvcImage(img5)
+      : value.label === "PVC 200x3mm Anti Static Green"
+      ? setPvcImage(img6)
+      : value.label === "PVC 200x2mm Clear Standard"
+      ? setPvcImage(img7)
+      : value.label === "PVC 400x4mm Clear Standard"
+      ? setPvcImage(img8)
+      : setPvcImage(img1);
   };
-
 
   return (
     <>
       <div className="mainDiv">
         <div className="imageBlur">
-          <div className='mainHeader'>
-            <img className='headLogo' src={headLogo} alt='dashboardlogo' />
-            <div className='headerText'>
+          <div className="mainHeader">
+            <img className="headLogo" src={headLogo} alt="dashboardlogo" />
+            <div className="headerText">
               <p>Your partner in Intralogistics solutions</p>
             </div>
-            <div className='header2Text'>
+            <div className="header2Text">
               <p>Online Tools</p>
             </div>
           </div>
-          <div className='main-body'>
+          <div className="main-body">
             <div className="main-head">
-              <NavLink exact activeClassName='headerActive' className='header1' to='/' >PVC Strip Curtain Calculator</NavLink>
-              <NavLink exact activeClassName='headerActive' className='header2' to='/dock' >Dock Leveller</NavLink>
+              <NavLink
+                exact
+                activeClassName="headerActive"
+                className="header1"
+                to="/"
+              >
+                PVC Strip Curtain Calculator
+              </NavLink>
+              <NavLink
+                exact
+                activeClassName="headerActive"
+                className="header2"
+                to="/dock"
+              >
+                Dock Leveller
+              </NavLink>
             </div>
             <div className="body-content">
               <div className="slider">
@@ -265,26 +301,33 @@ function Dashboard(props) {
                   placeholder="Select an option"
                 />
               </div>
-              <div className='pvc-img-div' >
-                <img className='pvc-img' src={PvcImg} alt='pvcimages' />
+              <div className="pvc-img-div">
+                <img className="pvc-img" src={PvcImg} alt="pvcimages" />
               </div>
-              <div className='bottom-label' >
-                <div className='label-head' >
+              <div className="bottom-label">
+                <div className="label-head">
                   <p className="label-text">LIST OF PARTS:</p>
                   {/* <button
                     onClick={handleSubmit}
                     className='genBtn' > */}
-                  <span onClick={handleSubmit} >
+                  <span onClick={handleSubmit}>
                     {/* <img className='downImg' src={downImg} alt='Download Image' /> */}
-                    <HiDownload className='genLink' size={50} />
+                    <HiDownload className="genLink" size={50} />
                     {/* Generate PDF */}
                   </span>
                   {/* <NavLink target='_blank' onClick={() => props.history.push("/pdf2", { name: "sarim" })} className='genLink' exact to="/pdf2" >Generate PDF</NavLink> */}
                   {/* </button> */}
                 </div>
-                <p className="part-label-text">{CurtainType.slice(0, 3)} {CurtainType.slice(12)}: {Label2Values} m</p>
-                <p className="part-label-text">PVC-RAIL-985: {Math.ceil(WidthUpdate / 985)} Pcs</p>
-                <p className="part-label-text">PVC-PLATE-{CurtainPlate}-SS: {LabelValues} Pcs</p>
+                <p className="part-label-text">
+                  {CurtainType.slice(0, 3)} {CurtainType.slice(12)}:{" "}
+                  {Label2Values} m
+                </p>
+                <p className="part-label-text">
+                  PVC-RAIL-985: {Math.ceil(WidthUpdate / 985)} Pcs
+                </p>
+                <p className="part-label-text">
+                  PVC-PLATE-{CurtainPlate}-SS: {LabelValues} Pcs
+                </p>
                 {/* <p className="label-text">Total Length: {Label2Values}m</p>
                   <p className="part-label-text">{LabelValues} Strips Needed</p> */}
               </div>
