@@ -24,13 +24,33 @@ const overlapOptions = [
   { value: "95", label: "95 mm" },
   { value: "135", label: "135 mm" },
 ];
+
+const partNumbers = [
+  "PVC-ANTISTATIC-GREEN",
+  "PSCL1M3003P",
+  "PSCL1M3003",
+  "PSCL1M3005P",
+  "PSCL1M3005",
+  "PSCL1M2002AM",
+  "PSCL1M2002",
+  "PSCL1M4004",
+];
 const stripOptions = [
-  { value: "300.01", label: "PVC 300x3mm Anti Static Green" },
+  {
+    value: "300.01",
+    label: "PVC 300x3mm Anti Static Green",
+  },
   { value: "300.02", label: "PVC 300x3mm Clear Polar" },
   { value: "300.03", label: "PVC 300x3mm Clear Standard" },
-  { value: "300.04", label: "PVC 300x5mm Clear Ribbed Polar" },
+  {
+    value: "300.04",
+    label: "PVC 300x5mm Clear Ribbed Polar",
+  },
   { value: "300.", label: "PVC 300x5mm Clear Ribbed" },
-  { value: "200.01", label: "PVC 200x3mm Anti Static Green" },
+  {
+    value: "200.01",
+    label: "PVC 200x3mm Anti Static Green",
+  },
   { value: "200", label: "PVC 200x2mm Clear Standard" },
   { value: "400", label: "PVC 400x4mm Clear Standard" },
 ];
@@ -43,9 +63,7 @@ const PdfValues = createContext();
 function Dashboard(props) {
   const history = useHistory();
   const [CurtainPlate, setCurtainPlate] = useState("300");
-  const [CurtainType, setCurtainType] = useState(
-    "PVC 300x3mm Anti Static Green"
-  );
+  const [CurtainType, setCurtainType] = useState(partNumbers[0]);
   const [PvcImg, setPvcImage] = useState(img1);
   const [WidthUpdate, setWidthUpdate] = useState([500]);
   const [HeightUpdate, setHeightUpdate] = useState([500]);
@@ -84,7 +102,7 @@ function Dashboard(props) {
     localStorage.setItem("height", HeightValues);
     localStorage.setItem("width", WidthValues);
     localStorage.setItem("label", Label2Values);
-    let part1 = `${CurtainType.slice(0, 3)} ${CurtainType.slice(12)}`;
+    let part1 = `${CurtainType}`;
     let qty1 = `${Label2Values} m`;
     let part2 = "PVC-RAIL-985";
     let qty2 = `${Math.ceil(WidthUpdate / 985)} Pcs`;
@@ -204,24 +222,28 @@ function Dashboard(props) {
       )
     );
     setCurtainPlate(Math.floor(value.value));
-    setCurtainType(value.label);
     value.label === "PVC 300x3mm Anti Static Green"
-      ? setPvcImage(img1)
+      ? changeImageAndPartnumber(img1, partNumbers[0])
       : value.label === "PVC 300x3mm Clear Polar"
-      ? setPvcImage(img2)
+      ? changeImageAndPartnumber(img2, partNumbers[1])
       : value.label === "PVC 300x3mm Clear Standard"
-      ? setPvcImage(img3)
+      ? changeImageAndPartnumber(img3, partNumbers[2])
       : value.label === "PVC 300x5mm Clear Ribbed Polar"
-      ? setPvcImage(img4)
+      ? changeImageAndPartnumber(img4, partNumbers[3])
       : value.label === "PVC 300x5mm Clear Ribbed"
-      ? setPvcImage(img5)
+      ? changeImageAndPartnumber(img5, partNumbers[4])
       : value.label === "PVC 200x3mm Anti Static Green"
-      ? setPvcImage(img6)
+      ? changeImageAndPartnumber(img6, partNumbers[5])
       : value.label === "PVC 200x2mm Clear Standard"
-      ? setPvcImage(img7)
+      ? changeImageAndPartnumber(img7, partNumbers[6])
       : value.label === "PVC 400x4mm Clear Standard"
-      ? setPvcImage(img8)
-      : setPvcImage(img1);
+      ? changeImageAndPartnumber(img8, partNumbers[7])
+      : changeImageAndPartnumber(img1, partNumbers[0]);
+  };
+
+  const changeImageAndPartnumber = (v1, v2) => {
+    setPvcImage(v1);
+    setCurtainType(v2);
   };
 
   return (
@@ -319,8 +341,7 @@ function Dashboard(props) {
                   {/* </button> */}
                 </div>
                 <p className="part-label-text">
-                  {CurtainType.slice(0, 3)} {CurtainType.slice(12)}:{" "}
-                  {Label2Values} m
+                  {CurtainType} : {Label2Values} m
                 </p>
                 <p className="part-label-text">
                   PVC-RAIL-985: {Math.ceil(WidthUpdate / 985)} Pcs
