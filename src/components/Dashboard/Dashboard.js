@@ -16,8 +16,8 @@ import img6 from "../../images/pvc-images/PSCL1M2002AM.jpg";
 import img7 from "../../images/pvc-images/PSCL1M2002.jpg";
 import img8 from "../../images/pvc-images/PSCL1M4004.jpg";
 
-// let widthget;
-// let heightget;
+let widthget;
+let heightget;
 
 const overlapOptions = [
   { value: "50", label: "50 mm" },
@@ -85,14 +85,14 @@ function Dashboard(props) {
       return localStorage.clear();
     });
     // if (updateLocal) {
-    // widthget = localStorage.getItem("width", WidthValues);
-    // heightget = localStorage.getItem("height", HeightValues);
-    // const overlapget = localStorage.getItem("overlap", OverlapValues);
-    // const labelget = localStorage.getItem("label", Label2Values);
-    // const stripget = localStorage.getItem("strip", StripValues);
-    // changeWidthAndHeight([widthget], [heightget], labelget);
-    // onGetOverlap(overlapget);
-    // onGetStrip(stripget);
+    widthget = localStorage.getItem("width", WidthValues);
+    heightget = localStorage.getItem("height", HeightValues);
+    const overlapget = localStorage.getItem("overlap", OverlapValues);
+    const labelget = localStorage.getItem("label", Label2Values);
+    const stripget = localStorage.getItem("strip", StripValues);
+    changeWidthAndHeight([widthget], [heightget], labelget);
+    onGetOverlap(overlapget);
+    onGetStrip(stripget);
     // }
   }, []);
 
@@ -151,54 +151,54 @@ function Dashboard(props) {
     setLabel2Values(Math.ceil((value * LabelValues) / 1000));
   };
 
-  // const changeWidthAndHeight = (value1, value2, value3) => {
-  //   if (value1[0] && value2[0] && value3 !== null) {
-  //     setWidthUpdate(value1);
-  //     setWidthValues(value1);
-  //     setHeightUpdate(value2);
-  //     setHeightValues(value2);
-  //     setTimeout(() => {
-  //       setLabel2Values(Math.ceil(value3));
-  //     }, 100);
-  //   }
-  // };
+  const changeWidthAndHeight = (value1, value2, value3) => {
+    if (value1[0] && value2[0] && value3 !== null) {
+      setWidthUpdate(value1);
+      setWidthValues(value1);
+      setHeightUpdate(value2);
+      setHeightValues(value2);
+      setTimeout(() => {
+        setLabel2Values(Math.ceil(value3));
+      }, 100);
+    }
+  };
 
-  // const onGetOverlap = (value) => {
-  //   value === "50"
-  //     ? changeOverlap(overlapOptions[0])
-  //     : value === "95"
-  //     ? changeOverlap(overlapOptions[1])
-  //     : value === "135"
-  //     ? changeOverlap(overlapOptions[2])
-  //     : changeOverlap(overlapOptions[0]);
-  // };
+  const onGetOverlap = (value) => {
+    value === "50"
+      ? changeOverlap(overlapOptions[0])
+      : value === "95"
+      ? changeOverlap(overlapOptions[1])
+      : value === "135"
+      ? changeOverlap(overlapOptions[2])
+      : changeOverlap(overlapOptions[0]);
+  };
 
-  // const onGetStrip = (value) => {
-  //   value === "300.01"
-  //     ? changeStrip(stripOptions[0])
-  //     : value === "300.02"
-  //     ? changeStrip(stripOptions[1])
-  //     : value === "300.03"
-  //     ? changeStrip(stripOptions[2])
-  //     : value === "300.04"
-  //     ? changeStrip(stripOptions[3])
-  //     : value === "300."
-  //     ? changeStrip(stripOptions[4])
-  //     : value === "200.01"
-  //     ? changeStrip(stripOptions[5])
-  //     : value === "200"
-  //     ? changeStrip(stripOptions[6])
-  //     : value === "400"
-  //     ? changeStrip(stripOptions[7])
-  //     : changeStrip(stripOptions[0]);
-  // };
+  const onGetStrip = (value) => {
+    value === "300.01"
+      ? changeStrip(stripOptions[0])
+      : value === "300.02"
+      ? changeStrip(stripOptions[1])
+      : value === "300.03"
+      ? changeStrip(stripOptions[2])
+      : value === "300.04"
+      ? changeStrip(stripOptions[3])
+      : value === "300."
+      ? changeStrip(stripOptions[4])
+      : value === "200.01"
+      ? changeStrip(stripOptions[5])
+      : value === "200"
+      ? changeStrip(stripOptions[6])
+      : value === "400"
+      ? changeStrip(stripOptions[7])
+      : changeStrip(stripOptions[0]);
+  };
 
-  // const changeOverlap = (value) => {
-  //   onOverlapChange(value);
-  // };
-  // const changeStrip = (value) => {
-  //   onStripWidthChange(value);
-  // };
+  const changeOverlap = (value) => {
+    onOverlapChange(value);
+  };
+  const changeStrip = (value) => {
+    onStripWidthChange(value);
+  };
 
   const onOverlapChange = (value) => {
     setOverlapValues(value.value);
