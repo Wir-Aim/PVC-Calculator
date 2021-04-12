@@ -85,14 +85,17 @@ function Dashboard(props) {
       return localStorage.clear();
     });
     // if (updateLocal) {
-    widthget = localStorage.getItem("width", WidthValues);
-    heightget = localStorage.getItem("height", HeightValues);
-    const overlapget = localStorage.getItem("overlap", OverlapValues);
-    const labelget = localStorage.getItem("label", Label2Values);
-    const stripget = localStorage.getItem("strip", StripValues);
-    changeWidthAndHeight([widthget], [heightget], labelget);
-    onGetOverlap(overlapget);
-    onGetStrip(stripget);
+    const updateValues = () => {
+      widthget = localStorage.getItem("width", WidthValues);
+      heightget = localStorage.getItem("height", HeightValues);
+      const overlapget = localStorage.getItem("overlap", OverlapValues);
+      const labelget = localStorage.getItem("label", Label2Values);
+      const stripget = localStorage.getItem("strip", StripValues);
+      changeWidthAndHeight([widthget], [heightget], labelget);
+      onGetOverlap(overlapget);
+      onGetStrip(stripget);
+    };
+    updateValues();
     // }
   }, []);
 
