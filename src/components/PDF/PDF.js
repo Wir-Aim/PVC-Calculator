@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "../../images/logo/SPIMA_trans.webp";
-// import Pdf from "react-to-pdf";
+import PDFBanner from "../../images/intactBanner.png"
 import "./PDF.css";
 import {
   Document,
@@ -103,7 +103,7 @@ function PDF(props) {
         <Page size="A4" style={styles.page}>
           <View className="refDiv">
             <View style={styles.banner}>
-              <Image style={styles.imageStyle} source={"intactBanner.png"} />
+              <Image style={styles.imageStyle} source={PDFBanner} />
             </View>
             <View style={styles.body}>
               <Text id="title" style={styles.title}>
